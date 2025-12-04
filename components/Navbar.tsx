@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useTheme } from "next-themes";// Update path as necessary
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import Image from "next/image";
 
 export default function Navbar() {
     const { theme, setTheme } = useTheme();
@@ -29,13 +30,16 @@ export default function Navbar() {
             <div className="flex h-16 items-center justify-between">
             {/*Logo */}
             <Link href="/" className="flex items-center gap-2">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary">
-                <Leaf className="h-6 w-6 text-primary-foreground"/>
-
-            </div>
-            <div className="flex flex-col">
-              <span className="font-heading text-lg font-bold leading-tight">CEBEA</span>
-              <span className="text-xs text-muted-foreground">Biodiversity & Education</span>
+            
+            <div className="flex flex-col mt-5">
+              <Image 
+                src="/logo-cebea3.png"
+                alt="CEBEA Logo"
+                width={150}
+                height={100}
+                className="object-contain "
+              />
+   
             </div>
              
 

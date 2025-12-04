@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
@@ -8,13 +9,14 @@ export default function Footer() {
           {/* Logo e Descrição */}
           <div className="md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xl">C</span>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold">CEBEA</h3>
-                <p className="text-sm text-gray-400">Centro de Estudos de Biodiversidade</p>
-              </div>
+              <Image 
+                src="/cebeabra2.png"
+                alt="CEBEA Logo"
+                width={150}
+                height={150}
+                className="object-contain"
+              />
+              
             </div>
             <p className="text-gray-300 mb-6 max-w-md">
               Promovendo investigação científica, educação ambiental e conservação da natureza 
