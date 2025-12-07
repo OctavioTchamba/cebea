@@ -82,7 +82,7 @@ export default function NoticiasEventosPage() {
       >
         <div className="absolute inset-0 bg-black/60" />
         <div className="container relative z-10 mx-auto max-w-5xl space-y-4 text-white">
-          <h1 className="font-heading text-4xl font-bold md:text-5xl lg:text-6xl">
+          <h1 className="font-heading text-4xl font-bold md:text-5xl lg:text-6xl text-white">
             Notícias e Eventos
           </h1>
           <p className="text-lg leading-relaxed text-white/85 md:text-xl">
@@ -106,9 +106,10 @@ export default function NoticiasEventosPage() {
         <div className="container mx-auto max-w-6xl px-4">
           <div className="mb-10 flex items-center justify-between gap-4">
             <div className="space-y-1">
-              <h2 className="font-heading text-3xl font-bold md:text-4xl">
+              <h2 className="font-heading text-3xl font-bold md:text-4xl text-[#002059]">
                 Últimas notícias
               </h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-[#129DE4] to-[#14E259] mx-auto mb-4"></div>
               <p className="text-sm text-muted-foreground">
                 Conteúdo sincronizado com a plataforma de gestão de conteúdos.
               </p>
@@ -125,29 +126,30 @@ export default function NoticiasEventosPage() {
             {noticias.map((noticia) => (
               <Card
                 key={noticia.id}
-                className="border-2 border-primary/15 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
+                className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group"
               >
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
                 <CardContent className="space-y-4 p-6">
                   <div className="flex items-start justify-between gap-3">
-                    <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary">
+                    <span className="rounded-full bg-[#129DE4]/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-[#129DE4]">
                       {noticia.category}
                     </span>
-                    <span className="flex items-center gap-2 text-xs font-medium uppercase text-muted-foreground">
-                      <Calendar className="h-4 w-4 text-primary" />
+                    <span className="flex items-center gap-2 text-xs font-medium uppercase text-[#002059]/70">
+                      <Calendar className="h-4 w-4 text-[#129DE4]" />
                       {noticia.date}
                     </span>
                   </div>
-                  <h3 className="font-heading text-xl font-semibold">
+                  <h3 className="font-heading text-xl font-semibold text-[#14E259]">
                     {noticia.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-[#002059]">
                     {noticia.summary}
                   </p>
                 </CardContent>
-                <CardFooter className="border-t border-primary/10 bg-muted/30 px-6 py-4">
+                <CardFooter className="border-t border-[#129DE4]/10 bg-muted/30 px-6 py-4">
                   <Link
                     href={noticia.link}
-                    className="flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
+                    className="flex items-center gap-2 text-sm font-semibold text-[#129DE4] transition-colors hover:text-[#0d8bc7]"
                   >
                     Ler mais
                     <ArrowRight className="h-4 w-4" />
@@ -163,9 +165,10 @@ export default function NoticiasEventosPage() {
         <div className="container mx-auto max-w-6xl px-4">
           <div className="mb-10 flex items-center justify-between gap-4">
             <div className="space-y-1">
-              <h2 className="font-heading text-3xl font-bold md:text-4xl">
+              <h2 className="font-heading text-3xl font-bold md:text-4xl text-[#002059]">
                 Eventos e workshops
               </h2>
+              <div className="w-24 h-1 bg-gradient-to-r from-[#129DE4] to-[#14E259] mx-auto mb-4"></div>
               <p className="text-sm text-muted-foreground">
                 Datas, locais e descrições das próximas atividades abertas ao
                 público e parceiros.
@@ -183,33 +186,34 @@ export default function NoticiasEventosPage() {
             {eventos.map((evento) => (
               <Card
                 key={evento.id}
-                className="border-2 border-secondary/20 transition-all duration-300 hover:-translate-y-1 hover:border-secondary/40 hover:shadow-lg"
+                className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group"
               >
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
                 <CardContent className="space-y-4 p-6">
                   <div className="flex items-center justify-between gap-3">
-                    <span className="rounded-full bg-secondary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-secondary">
+                    <span className="rounded-full bg-[#129DE4]/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-[#129DE4]">
                       {evento.category}
                     </span>
-                    <span className="flex items-center gap-2 text-xs font-medium uppercase text-muted-foreground">
-                      <Calendar className="h-4 w-4 text-secondary" />
+                    <span className="flex items-center gap-2 text-xs font-medium uppercase text-[#002059]/70">
+                      <Calendar className="h-4 w-4 text-[#129DE4]" />
                       {evento.date}
                     </span>
                   </div>
-                  <h3 className="font-heading text-xl font-semibold">
+                  <h3 className="font-heading text-xl font-semibold text-[#14E259]">
                     {evento.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-[#002059]">
                     {evento.description}
                   </p>
-                  <span className="flex items-center gap-2 text-sm font-semibold text-secondary">
+                  <span className="flex items-center gap-2 text-sm font-semibold text-[#129DE4]">
                     <MapPin className="h-4 w-4" />
                     {evento.location}
                   </span>
                 </CardContent>
-                <CardFooter className="border-t border-secondary/10 bg-background px-6 py-4">
+                <CardFooter className="border-t border-[#129DE4]/10 bg-background px-6 py-4">
                   <Link
                     href={evento.link}
-                    className="flex items-center gap-2 text-sm font-semibold text-secondary transition-colors hover:text-secondary/80"
+                    className="flex items-center gap-2 text-sm font-semibold text-[#129DE4] transition-colors hover:text-[#0d8bc7]"
                   >
                     Detalhes e inscrição
                     <Megaphone className="h-4 w-4" />

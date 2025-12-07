@@ -62,7 +62,7 @@ export default function Contatos() {
       >
         <div className="absolute inset-0 bg-black/60" />
         <div className="container relative z-10 mx-auto max-w-5xl space-y-6 text-center text-white">
-          <h1 className="font-heading text-4xl font-bold md:text-5xl lg:text-6xl">
+          <h1 className="font-heading text-4xl font-bold md:text-5xl lg:text-6xl text-white">
             Contactos
           </h1>
           <p className="mx-auto max-w-3xl text-lg leading-relaxed text-white/85 md:text-xl">
@@ -76,10 +76,11 @@ export default function Contatos() {
       <section className="bg-background py-20">
         <div className="container mx-auto flex max-w-6xl flex-col gap-12 px-4 lg:flex-row">
           <div className="flex-1 space-y-6">
-            <h2 className="font-heading text-3xl font-bold md:text-4xl">
+            <h2 className="font-heading text-3xl font-bold md:text-4xl text-[#002059]">
               Informações de contacto
             </h2>
-            <p className="text-muted-foreground">
+            <div className="w-24 h-1 bg-gradient-to-r from-[#129DE4] to-[#14E259] mx-auto mb-6"></div>
+            <p className="text-[#002059]">
               A nossa equipa está disponível para esclarecer dúvidas, agendar
               visitas técnicas, apoiar candidatos a formações e receber propostas
               de colaboração.
@@ -88,17 +89,18 @@ export default function Contatos() {
               {contactos.map(({ title, value, icon: Icon }) => (
                 <Card
                   key={title}
-                  className="border-2 border-primary/15 bg-muted/30"
+                  className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group bg-white"
                 >
+                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
                   <CardContent className="flex items-start gap-4 p-6">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                      <Icon className="h-6 w-6 text-primary" />
+                    <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#129DE4]/10">
+                      <Icon className="h-6 w-6 text-[#129DE4]" />
                     </span>
                     <div>
-                      <p className="text-xs font-semibold uppercase text-muted-foreground">
+                      <p className="text-xs font-semibold uppercase text-[#002059]/70">
                         {title}
                       </p>
-                      <p className="text-base font-medium text-foreground">
+                      <p className="text-base font-medium text-[#002059]">
                         {value}
                       </p>
                     </div>
@@ -112,7 +114,7 @@ export default function Contatos() {
               </p>
               <div className="flex flex-wrap gap-3">
                 {redesSociais.map(({ name, icon: Icon, href }) => (
-                  <Button key={name} variant="outline" size="sm" asChild>
+                  <Button key={name} variant="outline" size="sm" asChild className="border-[#129DE4]/30 text-[#129DE4] hover:bg-[#129DE4]/10">
                     <Link href={href} target="_blank" rel="noreferrer">
                       <Icon className="mr-2 h-4 w-4" />
                       {name}
@@ -124,19 +126,20 @@ export default function Contatos() {
           </div>
 
           <div className="flex-1">
-            <Card className="border-2 border-primary/15">
+            <Card className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:shadow-lg overflow-hidden group bg-white">
+              <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
               <CardContent className="p-8">
-                <h2 className="font-heading text-2xl font-semibold">
+                <h2 className="font-heading text-2xl font-semibold text-[#14E259]">
                   Envie a sua mensagem
                 </h2>
-                <p className="mb-6 text-sm text-muted-foreground">
+                <p className="mb-6 text-sm text-[#002059]">
                   Responderemos no prazo máximo de 2 dias úteis.
                 </p>
                 <form className="space-y-4">
                   <div>
                     <label
                       htmlFor="nome"
-                      className="mb-2 block text-sm font-medium text-muted-foreground"
+                      className="mb-2 block text-sm font-medium text-[#002059]"
                     >
                       Nome
                     </label>
@@ -144,7 +147,7 @@ export default function Contatos() {
                       id="nome"
                       name="nome"
                       type="text"
-                      className="w-full rounded-lg border border-primary/20 bg-background px-4 py-2 text-sm focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
+                      className="w-full rounded-lg border border-[#129DE4]/20 bg-background px-4 py-2 text-sm text-[#002059] focus:border-[#129DE4] focus:outline-none focus:ring-2 focus:ring-[#129DE4]/30"
                       placeholder="O seu nome completo"
                     />
                   </div>
@@ -195,7 +198,7 @@ export default function Contatos() {
                       placeholder="Descreva a sua necessidade ou questão..."
                     />
                   </div>
-                  <Button type="submit" className="w-full">
+                  <Button type="submit" className="w-full bg-[#129DE4] hover:bg-[#0d8bc7] text-white">
                     Enviar mensagem
                     <Send className="ml-2 h-4 w-4" />
                   </Button>
@@ -219,12 +222,13 @@ export default function Contatos() {
                 referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
-            <Card className="border-2 border-secondary/20 bg-background">
+            <Card className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:shadow-lg overflow-hidden group bg-white">
+              <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
               <CardContent className="space-y-4 p-6">
-                <h3 className="font-heading text-2xl font-semibold">
+                <h3 className="font-heading text-2xl font-semibold text-[#14E259]">
                   Newsletter / Subscrição
                 </h3>
-                <p className="text-muted-foreground">
+                <p className="text-[#002059]">
                   Receba notícias, publicações e convites para eventos diretamente
                   no seu email.
                 </p>
@@ -232,12 +236,12 @@ export default function Contatos() {
                   <input
                     type="email"
                     placeholder="O seu email"
-                    className="w-full rounded-lg border border-secondary/30 bg-background px-4 py-2 text-sm focus:border-secondary focus:outline-none focus:ring-2 focus:ring-secondary/30"
+                    className="w-full rounded-lg border border-[#129DE4]/30 bg-background px-4 py-2 text-sm text-[#002059] focus:border-[#129DE4] focus:outline-none focus:ring-2 focus:ring-[#129DE4]/30"
                   />
-                  <Button className="w-full" type="submit" variant="secondary">
+                  <Button className="w-full bg-[#129DE4] hover:bg-[#0d8bc7] text-white" type="submit">
                     Subscrever
                   </Button>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-xs text-[#002059]/70">
                     Pode cancelar a subscrição quando desejar. Respeitamos a sua
                     privacidade.
                   </p>

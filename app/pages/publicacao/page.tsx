@@ -153,9 +153,10 @@ export default function PublicacoesPage() {
       <section className="relative bg-cover bg-center bg-cover-fit px-4 pb-24 pt-32 md:pt-20" style={{ backgroundImage: `url(/imagem5.jpg)` }}>
         <div className="absolute inset-0 bg-black/60" />
         <div className="container relative z-10 mx-auto max-w-5xl space-y-4 text-white">
-          <h1 className="font-heading text-4xl font-bold md:text-5xl lg:text-6xl">
+          <h1 className="font-heading text-4xl font-bold md:text-5xl lg:text-6xl text-white">
             Publicações
           </h1>
+          <div className="w-24 h-1 bg-gradient-to-r from-[#129DE4] to-[#14E259] mx-auto my-6"></div>
           <p className="text-lg leading-relaxed text-white/85 md:text-xl">
             A produção científica e técnica do CEBEA disponível para consulta e
             download. Explore artigos, relatórios, guias e dissertações com o
@@ -246,54 +247,55 @@ export default function PublicacoesPage() {
               {filteredPublications.map((publication) => (
                 <Card
                   key={publication.id}
-                  className="border-2 border-primary/15 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
+                  className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group"
                 >
+                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
                   <CardContent className="space-y-4 p-6">
                     <div className="flex items-start gap-4">
-                      <span className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+                      <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#129DE4]/10">
                         {publication.type === "Artigo científico" ? (
-                          <FileText className="h-6 w-6 text-primary" />
+                          <FileText className="h-6 w-6 text-[#129DE4]" />
                         ) : publication.type === "Livro" ? (
-                          <BookOpen className="h-6 w-6 text-primary" />
+                          <BookOpen className="h-6 w-6 text-[#129DE4]" />
                         ) : (
-                          <Layers className="h-6 w-6 text-primary" />
+                          <Layers className="h-6 w-6 text-[#129DE4]" />
                         )}
                       </span>
                       <div className="flex-1 space-y-2">
                         <div className="flex flex-wrap items-center justify-between gap-2">
-                          <h3 className="font-heading text-xl font-semibold">
+                          <h3 className="font-heading text-xl font-semibold text-[#14E259]">
                             {publication.title}
                           </h3>
-                          <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase text-primary">
+                          <span className="rounded-full bg-[#129DE4]/10 px-3 py-1 text-xs font-semibold uppercase text-[#129DE4]">
                             {publication.type}
                           </span>
                         </div>
-                        <p className="text-sm text-muted-foreground">
+                        <p className="text-sm text-[#002059]">
                           {publication.summary}
                         </p>
                       </div>
                     </div>
-                    <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
+                    <div className="flex flex-wrap gap-4 text-sm text-[#002059]/70">
                       <span className="flex items-center gap-2">
-                        <Calendar className="h-4 w-4 text-primary" />
+                        <Calendar className="h-4 w-4 text-[#129DE4]" />
                         {publication.year}
                       </span>
                       <span className="flex items-center gap-2">
-                        <BookOpen className="h-4 w-4 text-primary" />
+                        <BookOpen className="h-4 w-4 text-[#129DE4]" />
                         {publication.authors}
                       </span>
                       <span className="flex items-center gap-2">
-                        <Tag className="h-4 w-4 text-primary" />
+                        <Tag className="h-4 w-4 text-[#129DE4]" />
                         {publication.theme}
                       </span>
                     </div>
                   </CardContent>
-                  <CardFooter className="border-t border-primary/10 bg-muted/30 px-6 py-4">
+                  <CardFooter className="border-t border-[#129DE4]/10 bg-muted/30 px-6 py-4">
                     <div className="flex w-full items-center justify-between">
-                      <span className="text-xs text-muted-foreground">
+                      <span className="text-xs text-[#002059]/70">
                         Disponível para download imediato
                       </span>
-                      <Button asChild size="sm">
+                      <Button asChild size="sm" className="bg-[#129DE4] hover:bg-[#0d8bc7] text-white">
                         <Link href={publication.downloadUrl} download>
                           <Download className="mr-2 h-4 w-4" />
                           Download

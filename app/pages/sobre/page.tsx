@@ -28,7 +28,7 @@ export default function Sobre() {
         <div className="container mx-auto max-w-6xl text-center relative z-10">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white fade-in">
             Centro de Estudos de 
-            <span className="block nature-gradient-text">Biodiversidade e Educação Ambiental</span>
+            <span className="block text-white">Biodiversidade e Educação Ambiental</span>
           </h1>
           <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-4xl mx-auto leading-relaxed">
             Promovendo a investigação científica, conservação da biodiversidade e educação ambiental em Angola
@@ -54,50 +54,51 @@ export default function Sobre() {
       <section className="py-20 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-6 text-[#002059]">
               Quem Somos
             </h2>
-            <div className="w-24 h-1 bg-linear-to-r from-primary to-accent mx-auto mb-8"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-[#129DE4] to-[#14E259] mx-auto mb-8"></div>
           </div>
           
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                O <strong className="text-primary">Centro de Estudos de Biodiversidade e Educação Ambiental (CEBEA)</strong> 
+              <p className="text-lg text-[#002059] leading-relaxed">
+                O <strong className="text-[#129DE4]">Centro de Estudos de Biodiversidade e Educação Ambiental (CEBEA)</strong> 
                 é uma unidade de investigação científica integrada no Instituto Superior de Ciências da Educação da Huíla (ISCED-Huíla), 
                 dedicada ao estudo, conservação e valorização da biodiversidade angolana.
               </p>
               
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-[#002059] leading-relaxed">
                 Com foco especial na região sudoeste de Angola, o CEBEA desenvolve investigação de excelência 
                 em ecossistemas únicos, contribuindo para o conhecimento científico nacional e internacional 
                 sobre a rica biodiversidade do país.
               </p>
 
               <div className="grid grid-cols-2 gap-4 mt-8">
-                <div className="text-center p-4 bg-muted/50 rounded-lg">
-                  <Users className="h-8 w-8 text-primary mx-auto mb-2" />
-                  <div className="text-2xl font-bold text-primary">15+</div>
-                  <div className="text-sm text-muted-foreground">Investigadores</div>
+                <div className="text-center p-4 bg-[#129DE4]/10 rounded-lg border-2 border-transparent hover:border-[#14E259]/30 transition-all">
+                  <Users className="h-8 w-8 text-[#129DE4] mx-auto mb-2" />
+                  <div className="text-2xl font-bold text-[#129DE4]">15+</div>
+                  <div className="text-sm text-[#002059]">Investigadores</div>
                 </div>
-                <div className="text-center p-4 bg-muted/50 rounded-lg">
-                  <Award className="h-8 w-8 text-accent mx-auto mb-2" />
-                  <div className="text-2xl font-bold text-accent">50+</div>
-                  <div className="text-sm text-muted-foreground">Projetos</div>
+                <div className="text-center p-4 bg-[#14E259]/10 rounded-lg border-2 border-transparent hover:border-[#14E259]/30 transition-all">
+                  <Award className="h-8 w-8 text-[#14E259] mx-auto mb-2" />
+                  <div className="text-2xl font-bold text-[#14E259]">50+</div>
+                  <div className="text-sm text-[#002059]">Projetos</div>
                 </div>
               </div>
             </div>
 
             <div className="space-y-6">
-              <Card className="border-2 border-primary/20 hover:border-primary/40 transition-colors">
+              <Card className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group bg-white">
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
-                    <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                      <Target className="h-6 w-6 text-primary" />
+                    <div className="h-12 w-12 rounded-lg bg-[#129DE4]/10 flex items-center justify-center shrink-0">
+                      <Target className="h-6 w-6 text-[#129DE4]" />
                     </div>
                     <div>
-                      <h3 className="font-heading text-xl font-semibold mb-2">Nossa Missão</h3>
-                      <p className="text-muted-foreground leading-relaxed">
+                      <h3 className="font-heading text-xl font-semibold mb-2 text-[#14E259]">Nossa Missão</h3>
+                      <p className="text-[#002059] leading-relaxed">
                         Promover a investigação científica sobre a biodiversidade angolana, 
                         contribuindo para a conservação e uso sustentável dos recursos naturais.
                       </p>
@@ -106,15 +107,16 @@ export default function Sobre() {
                 </CardContent>
               </Card>
 
-              <Card className="border-2 border-accent/20 hover:border-accent/40 transition-colors">
+              <Card className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group bg-white">
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
-                    <div className="h-12 w-12 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
-                      <Lightbulb className="h-6 w-6 text-accent" />
+                    <div className="h-12 w-12 rounded-lg bg-[#14E259]/10 flex items-center justify-center shrink-0">
+                      <Lightbulb className="h-6 w-6 text-[#14E259]" />
                     </div>
                     <div>
-                      <h3 className="font-heading text-xl font-semibold mb-2">Nossa Visão</h3>
-                      <p className="text-muted-foreground leading-relaxed">
+                      <h3 className="font-heading text-xl font-semibold mb-2 text-[#14E259]">Nossa Visão</h3>
+                      <p className="text-[#002059] leading-relaxed">
                         Ser referência nacional e internacional em estudos de biodiversidade 
                         e educação ambiental, contribuindo para um futuro sustentável.
                       </p>
@@ -131,30 +133,34 @@ export default function Sobre() {
       <section className="py-20 px-4 bg-muted/30">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-6 text-[#002059]">
               Infraestruturas de Investigação
             </h2>
-            <div className="w-24 h-1 bg-linear-to-r from-primary to-accent mx-auto mb-8"></div>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            <div className="w-24 h-1 bg-gradient-to-r from-[#129DE4] to-[#14E259] mx-auto mb-8"></div>
+            <p className="text-lg text-[#002059] max-w-3xl mx-auto">
               O CEBEA dispõe de infraestruturas especializadas que suportam a investigação científica 
               e a conservação da biodiversidade angolana.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="border-2 border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg">
+            <Card className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group bg-white">
+              <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
+              <div className="relative h-48 bg-cover bg-center" style={{backgroundImage: `url(https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&h=400&fit=crop)`}}>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+              </div>
               <CardContent className="p-6">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <Landmark className="h-6 w-6 text-primary" />
+                <div className="flex items-center gap-4 mb-4 -mt-8 relative z-10">
+                  <div className="h-12 w-12 rounded-lg bg-[#129DE4]/10 flex items-center justify-center backdrop-blur-sm bg-white/90">
+                    <Landmark className="h-6 w-6 text-[#129DE4]" />
                   </div>
-                  <h3 className="font-heading text-xl font-semibold">Herbário LUBA</h3>
+                  <h3 className="font-heading text-xl font-semibold text-[#14E259]">Herbário LUBA</h3>
                 </div>
-                <p className="text-muted-foreground leading-relaxed mb-4">
+                <p className="text-[#002059] leading-relaxed mb-4">
                   Coleções botânicas locais, nacionais e internacionais, apoiando a
                   investigação florística e a conservação da flora angolana.
                 </p>
-                <div className="text-sm text-primary font-medium">
+                <div className="text-sm text-[#129DE4] font-medium">
                   • 5.000+ espécimes catalogados<br/>
                   • Coleções de referência regional<br/>
                   • Apoio à taxonomia vegetal
@@ -162,19 +168,23 @@ export default function Sobre() {
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-accent/20 hover:border-accent/40 transition-all duration-300 hover:shadow-lg">
+            <Card className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group bg-white">
+              <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
+              <div className="relative h-48 bg-cover bg-center" style={{backgroundImage: `url(https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop)`}}>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+              </div>
               <CardContent className="p-6">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="h-12 w-12 rounded-lg bg-accent/10 flex items-center justify-center">
-                    <Microscope className="h-6 w-6 text-accent" />
+                <div className="flex items-center gap-4 mb-4 -mt-8 relative z-10">
+                  <div className="h-12 w-12 rounded-lg bg-[#14E259]/10 flex items-center justify-center backdrop-blur-sm bg-white/90">
+                    <Microscope className="h-6 w-6 text-[#14E259]" />
                   </div>
-                  <h3 className="font-heading text-xl font-semibold">Museu de Zoologia</h3>
+                  <h3 className="font-heading text-xl font-semibold text-[#14E259]">Museu de Zoologia</h3>
                 </div>
-                <p className="text-muted-foreground leading-relaxed mb-4">
+                <p className="text-[#002059] leading-relaxed mb-4">
                   Acervo zoológico com coleções representativas de Angola e do
                   exterior, fomentando estudos taxonômicos e ecológicos.
                 </p>
-                <div className="text-sm text-accent font-medium">
+                <div className="text-sm text-[#14E259] font-medium">
                   • Coleções de vertebrados e invertebrados<br/>
                   • Espécimes únicos da região<br/>
                   • Laboratório de taxonomia
@@ -182,19 +192,23 @@ export default function Sobre() {
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-secondary/20 hover:border-secondary/40 transition-all duration-300 hover:shadow-lg">
+            <Card className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group bg-white">
+              <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
+              <div className="relative h-48 bg-cover bg-center" style={{backgroundImage: `url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop)`}}>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+              </div>
               <CardContent className="p-6">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="h-12 w-12 rounded-lg bg-secondary/10 flex items-center justify-center">
-                    <TreePine className="h-6 w-6 text-secondary" />
+                <div className="flex items-center gap-4 mb-4 -mt-8 relative z-10">
+                  <div className="h-12 w-12 rounded-lg bg-[#129DE4]/10 flex items-center justify-center backdrop-blur-sm bg-white/90">
+                    <TreePine className="h-6 w-6 text-[#129DE4]" />
                   </div>
-                  <h3 className="font-heading text-xl font-semibold">Laboratório de Ecologia</h3>
+                  <h3 className="font-heading text-xl font-semibold text-[#14E259]">Laboratório de Ecologia</h3>
                 </div>
-                <p className="text-muted-foreground leading-relaxed mb-4">
+                <p className="text-[#002059] leading-relaxed mb-4">
                   Instalações modernas para estudos ecológicos e de conservação,
                   incluindo equipamentos de análise ambiental.
                 </p>
-                <div className="text-sm text-secondary font-medium">
+                <div className="text-sm text-[#129DE4] font-medium">
                   • Análise de solos e água<br/>
                   • Estudos de biodiversidade<br/>
                   • Monitoramento ambiental
@@ -212,30 +226,34 @@ export default function Sobre() {
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center space-y-4 mb-16">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-balance">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-balance text-[#002059]">
               Nossos Objetivos Estratégicos
             </h2>
-            <div className="w-24 h-1 bg-linear-to-r from-primary to-accent mx-auto mb-8"></div>
-            <p className="text-lg text-muted-foreground text-pretty leading-relaxed">
+            <div className="w-24 h-1 bg-gradient-to-r from-[#129DE4] to-[#14E259] mx-auto mb-8"></div>
+            <p className="text-lg text-[#002059] text-pretty leading-relaxed">
               As diretrizes fundamentais que orientam a atuação do CEBEA na promoção da biodiversidade 
               e educação ambiental em Angola.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="border-2 border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg group">
+            <Card className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group bg-white">
+              <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
+              <div className="relative h-40 bg-cover bg-center" style={{backgroundImage: `url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop)`}}>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+              </div>
               <CardContent className="p-6 space-y-4">
-                <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                  <FlaskConical className="h-6 w-6 text-primary" />
+                <div className="h-12 w-12 rounded-lg bg-[#129DE4]/10 flex items-center justify-center group-hover:bg-[#129DE4]/20 transition-colors -mt-8 relative z-10">
+                  <FlaskConical className="h-6 w-6 text-[#129DE4]" />
                 </div>
-                <h3 className="font-heading text-xl font-semibold">
+                <h3 className="font-heading text-xl font-semibold text-[#14E259]">
                   Investigação Científica
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-[#002059] leading-relaxed">
                   Desenvolver investigação científica de excelência sobre recursos biológicos, 
                   ecossistemas e biodiversidade de Angola, com foco especial no sudoeste do país.
                 </p>
-                <div className="text-sm text-primary font-medium">
+                <div className="text-sm text-[#129DE4] font-medium">
                   • Estudos taxonômicos<br/>
                   • Análise ecológica<br/>
                   • Conservação de espécies
@@ -243,19 +261,23 @@ export default function Sobre() {
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-accent/20 hover:border-accent/40 transition-all duration-300 hover:shadow-lg group">
+            <Card className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group bg-white">
+              <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
+              <div className="relative h-40 bg-cover bg-center" style={{backgroundImage: `url(https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&h=400&fit=crop)`}}>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+              </div>
               <CardContent className="p-6 space-y-4">
-                <div className="h-12 w-12 rounded-lg bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
-                  <BookOpen className="h-6 w-6 text-accent" />
+                <div className="h-12 w-12 rounded-lg bg-[#14E259]/10 flex items-center justify-center group-hover:bg-[#14E259]/20 transition-colors -mt-8 relative z-10">
+                  <BookOpen className="h-6 w-6 text-[#14E259]" />
                 </div>
-                <h3 className="font-heading text-xl font-semibold">
+                <h3 className="font-heading text-xl font-semibold text-[#14E259]">
                   Informação e Documentação
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-[#002059] leading-relaxed">
                   Criar e manter um sistema abrangente de informação e documentação 
                   da diversidade biológica angolana, facilitando o acesso ao conhecimento.
                 </p>
-                <div className="text-sm text-accent font-medium">
+                <div className="text-sm text-[#14E259] font-medium">
                   • Base de dados científica<br/>
                   • Publicações especializadas<br/>
                   • Arquivo digital
@@ -263,19 +285,23 @@ export default function Sobre() {
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-secondary/20 hover:border-secondary/40 transition-all duration-300 hover:shadow-lg group">
+            <Card className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group bg-white">
+              <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
+              <div className="relative h-40 bg-cover bg-center" style={{backgroundImage: `url(https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&h=400&fit=crop)`}}>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+              </div>
               <CardContent className="p-6 space-y-4">
-                <div className="h-12 w-12 rounded-lg bg-secondary/10 flex items-center justify-center group-hover:bg-secondary/20 transition-colors">
-                  <GraduationCap className="h-6 w-6 text-secondary" />
+                <div className="h-12 w-12 rounded-lg bg-[#129DE4]/10 flex items-center justify-center group-hover:bg-[#129DE4]/20 transition-colors -mt-8 relative z-10">
+                  <GraduationCap className="h-6 w-6 text-[#129DE4]" />
                 </div>
-                <h3 className="font-heading text-xl font-semibold">
+                <h3 className="font-heading text-xl font-semibold text-[#14E259]">
                   Educação Ambiental
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-[#002059] leading-relaxed">
                   Promover a educação ambiental e valorização do património natural e cultural, 
                   sensibilizando a comunidade para a conservação da biodiversidade.
                 </p>
-                <div className="text-sm text-secondary font-medium">
+                <div className="text-sm text-[#129DE4] font-medium">
                   • Programas educativos<br/>
                   • Workshops e palestras<br/>
                   • Sensibilização comunitária
@@ -283,19 +309,23 @@ export default function Sobre() {
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-primary/20 hover:border-primary/40 transition-all duration-300 hover:shadow-lg group">
+            <Card className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group bg-white">
+              <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
+              <div className="relative h-40 bg-cover bg-center" style={{backgroundImage: `url(https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&h=400&fit=crop)`}}>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+              </div>
               <CardContent className="p-6 space-y-4">
-                <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                  <Shield className="h-6 w-6 text-primary" />
+                <div className="h-12 w-12 rounded-lg bg-[#129DE4]/10 flex items-center justify-center group-hover:bg-[#129DE4]/20 transition-colors -mt-8 relative z-10">
+                  <Shield className="h-6 w-6 text-[#129DE4]" />
                 </div>
-                <h3 className="font-heading text-xl font-semibold">
+                <h3 className="font-heading text-xl font-semibold text-[#14E259]">
                   Conservação
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-[#002059] leading-relaxed">
                   Contribuir para a conservação da biodiversidade através de estudos 
                   de impacto, monitoramento e propostas de gestão sustentável.
                 </p>
-                <div className="text-sm text-primary font-medium">
+                <div className="text-sm text-[#129DE4] font-medium">
                   • Planos de conservação<br/>
                   • Monitoramento ambiental<br/>
                   • Gestão sustentável
@@ -303,19 +333,23 @@ export default function Sobre() {
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-accent/20 hover:border-accent/40 transition-all duration-300 hover:shadow-lg group">
+            <Card className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group bg-white">
+              <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
+              <div className="relative h-40 bg-cover bg-center" style={{backgroundImage: `url(https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&h=400&fit=crop)`}}>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+              </div>
               <CardContent className="p-6 space-y-4">
-                <div className="h-12 w-12 rounded-lg bg-accent/10 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
-                  <Users className="h-6 w-6 text-accent" />
+                <div className="h-12 w-12 rounded-lg bg-[#14E259]/10 flex items-center justify-center group-hover:bg-[#14E259]/20 transition-colors -mt-8 relative z-10">
+                  <Users className="h-6 w-6 text-[#14E259]" />
                 </div>
-                <h3 className="font-heading text-xl font-semibold">
+                <h3 className="font-heading text-xl font-semibold text-[#14E259]">
                   Formação
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-[#002059] leading-relaxed">
                   Desenvolver competências técnicas e científicas em biodiversidade 
                   e educação ambiental, formando profissionais qualificados.
                 </p>
-                <div className="text-sm text-accent font-medium">
+                <div className="text-sm text-[#14E259] font-medium">
                   • Cursos especializados<br/>
                   • Estágios de investigação<br/>
                   • Capacitação técnica
@@ -323,19 +357,23 @@ export default function Sobre() {
               </CardContent>
             </Card>
 
-            <Card className="border-2 border-secondary/20 hover:border-secondary/40 transition-all duration-300 hover:shadow-lg group">
+            <Card className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group bg-white">
+              <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
+              <div className="relative h-40 bg-cover bg-center" style={{backgroundImage: `url(https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop)`}}>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+              </div>
               <CardContent className="p-6 space-y-4">
-                <div className="h-12 w-12 rounded-lg bg-secondary/10 flex items-center justify-center group-hover:bg-secondary/20 transition-colors">
-                  <Globe className="h-6 w-6 text-secondary" />
+                <div className="h-12 w-12 rounded-lg bg-[#129DE4]/10 flex items-center justify-center group-hover:bg-[#129DE4]/20 transition-colors -mt-8 relative z-10">
+                  <Globe className="h-6 w-6 text-[#129DE4]" />
                 </div>
-                <h3 className="font-heading text-xl font-semibold">
+                <h3 className="font-heading text-xl font-semibold text-[#14E259]">
                   Cooperação
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-[#002059] leading-relaxed">
                   Estabelecer parcerias nacionais e internacionais para fortalecer 
                   a investigação e promover o intercâmbio científico.
                 </p>
-                <div className="text-sm text-secondary font-medium">
+                <div className="text-sm text-[#129DE4] font-medium">
                   • Colaborações internacionais<br/>
                   • Redes de investigação<br/>
                   • Intercâmbio científico

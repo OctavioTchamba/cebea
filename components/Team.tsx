@@ -55,9 +55,10 @@ export default function Team() {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className=" md:text-4xl font-bold text-xl mb-4">
+            <h2 className="md:text-4xl font-bold text-xl mb-4 text-[#002059]">
               Nossa Equipe
             </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-[#129DE4] to-[#14E259] mx-auto mb-6"></div>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Conheça os pesquisadores e educadores que fazem a diferença na conservação ambiental
             </p>
@@ -67,46 +68,47 @@ export default function Team() {
             {team.map((member) => (
               <div 
                 key={member.id}
-                className="bg-muted border-2  rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+                className="relative bg-white border-2 border-transparent hover:border-[#14E259]/30 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group"
               >
-                <div className="h-64 bg-linear-to-br from-green-400 to-blue-500 relative">
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259] z-10"></div>
+                <div className="h-64 bg-gradient-to-br from-[#129DE4] to-[#14E259] relative">
                   <div className="absolute inset-0 bg-black/20">
-                   <User2Icon className="w-23 h-23 rounded-full bg-primary/50 ml-auto mt-15 mx-auto"/>
+                   <User2Icon className="w-23 h-23 rounded-full bg-white/50 ml-auto mt-15 mx-auto"/>
                   </div>
                   <div className="absolute bottom-4 left-4 right-4">
-                    <span className="bg-muted text px-3 py-1 rounded-full text-sm font-heading font-semibold">
+                    <span className="bg-white/90 text-[#002059] px-3 py-1 rounded-full text-sm font-heading font-semibold">
                       {member.specialization}
                     </span>
                   </div>
                 </div>
                 
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold font-heading mb-1">
+                  <h3 className="text-xl font-semibold font-heading mb-1 text-[#14E259]">
                     {member.name}
                   </h3>
-                  <p className="text-green-600 font-semibold mb-2">
+                  <p className="text-[#129DE4] font-semibold mb-2">
                     {member.position}
                   </p>
                   
-                  <div className="flex items-center text-sm text-muted-foreground leading-relaxed mb-3">
-                    <GraduationCap className="w-4 h-4 mr-2" />
+                  <div className="flex items-center text-sm text-[#002059]/70 leading-relaxed mb-3">
+                    <GraduationCap className="w-4 h-4 mr-2 text-[#129DE4]" />
                     {member.education}
                   </div>
                   
-                  <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
+                  <p className="text-[#002059] text-sm mb-4 line-clamp-3">
                     {member.bio}
                   </p>
                   
                   <div className="flex space-x-2">
                     <Link 
                       href={`mailto:${member.email}`}
-                      className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-2 rounded-lg text-center text-sm transition-colors"
+                      className="flex-1 bg-[#002059]/10 hover:bg-[#002059]/20 text-[#002059] px-3 py-2 rounded-lg text-center text-sm transition-colors"
                     >
                       <Mail className="w-4 h-4 mx-auto" />
                     </Link>
                     <Link 
                       href={`https://linkedin.com/in/${member.linkedin}`}
-                      className="flex-1 bg-blue-100 hover:bg-blue-200 text-blue-700 px-3 py-2 rounded-lg text-center text-sm transition-colors"
+                      className="flex-1 bg-[#129DE4]/10 hover:bg-[#129DE4]/20 text-[#129DE4] px-3 py-2 rounded-lg text-center text-sm transition-colors"
                     >
                       <Linkedin className="w-4 h-4 mx-auto" />
                     </Link>
@@ -119,7 +121,7 @@ export default function Team() {
           <div className="text-center mt-12">
             <Button 
               size="lg"
-              className="bg-green-600 hover:bg-green-700 text-white px-8 py-3"
+              className="bg-[#129DE4] hover:bg-[#0d8bc7] text-white px-8 py-3"
             >
               Conheça Toda Nossa Equipe
               <ArrowRight className="ml-2 w-5 h-5" />

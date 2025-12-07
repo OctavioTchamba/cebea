@@ -10,6 +10,7 @@ import {
   MapPin,
   Users,
 } from "lucide-react";
+import Image from "next/image";
 
 const formacoesRecentes = [
   {
@@ -128,7 +129,7 @@ export default function EducacaoPage() {
         <div className="container relative z-10 mx-auto max-w-6xl text-center">
           <h1 className="text-4xl font-bold text-white md:text-5xl lg:text-6xl">
             Educação e Formação
-            <span className="nature-gradient-text block text-white">
+            <span className="block text-white">
               Competências para a sustentabilidade
             </span>
           </h1>
@@ -152,9 +153,38 @@ export default function EducacaoPage() {
       <section className="bg-background py-20">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="mx-auto mb-16 max-w-4xl text-center space-y-4">
-            <h2 className="font-heading text-3xl font-bold md:text-4xl">
+            <h2 className="font-heading text-3xl font-bold md:text-4xl text-[#002059]">
+              Formações Recentes
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-[#129DE4] to-[#14E259] mx-auto mb-6"></div>
+            <p className="text-lg leading-relaxed text-muted-foreground ">
+              Aprendizagem contínua nas áreas de ecologia, taxonomia, SIG,
+              deteção remota, bases de dados e alterações climáticas.
+            </p>
+            <Card>  
+              <CardContent> 
+                <div className="grid  block it ems-center gap-3">
+                  <Image src="/imagem6.jpg" alt="Imagem" width={100} height={100} className="relative h-48 bg-cover bg-center"/>
+                  <Calendar className="h-6 w-6 text-[#129DE4]" />
+                  <h3 className="font-heading text-xl font-semibold text-[#14E259]">
+                    Formação em Ecologia
+                  </h3>
+                </div>
+                <p className="text-[#002059]">
+                  Capacitando a próxima geração através de programas educacionais inovadores que promovem a
+                  gestão ambiental e a alfabetização científica.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                 
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+          <div className="mx-auto mb-16 max-w-4xl text-center space-y-4">
+            <h2 className="font-heading text-3xl font-bold md:text-4xl text-[#002059]">
               Lista de Formações Recentes
             </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-[#129DE4] to-[#14E259] mx-auto mb-6"></div>
             <p className="text-lg leading-relaxed text-muted-foreground">
               Aprendizagem contínua nas áreas de ecologia, taxonomia, SIG,
               deteção remota, bases de dados e alterações climáticas.
@@ -165,28 +195,29 @@ export default function EducacaoPage() {
             {formacoesRecentes.map((item) => (
               <Card
                 key={item.id}
-                className="border-2 border-primary/20 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
+                className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group"
               >
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
                 <CardContent className="flex h-full flex-col gap-4 p-6">
                   <div>
-                    <h3 className="font-heading text-xl font-semibold">
+                    <h3 className="font-heading text-xl font-semibold text-[#14E259]">
                       {item.title}
                     </h3>
-                    <p className="mt-2 text-muted-foreground">
+                    <p className="mt-2 text-[#002059]">
                       {item.description}
                     </p>
                 </div>
-                  <div className="grid gap-2 text-sm text-muted-foreground md:grid-cols-2">
+                  <div className="grid gap-2 text-sm text-[#002059]/70 md:grid-cols-2">
                     <span className="flex items-center gap-2">
-                      <Calendar className="h-4 w-4 text-primary" />
+                      <Calendar className="h-4 w-4 text-[#129DE4]" />
                       {item.date}
                     </span>
                     <span className="flex items-center gap-2">
-                      <Clock className="h-4 w-4 text-primary" />
+                      <Clock className="h-4 w-4 text-[#129DE4]" />
                       {item.duration}
                     </span>
                     <span className="flex items-center gap-2 md:col-span-2">
-                      <MapPin className="h-4 w-4 text-primary" />
+                      <MapPin className="h-4 w-4 text-[#129DE4]" />
                       {item.location}
                     </span>
                   </div>
@@ -194,7 +225,7 @@ export default function EducacaoPage() {
                     {item.focus.map((tag) => (
                       <span
                         key={tag}
-                        className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium uppercase tracking-wide text-primary"
+                        className="rounded-full bg-[#129DE4]/10 px-3 py-1 text-xs font-medium uppercase tracking-wide text-[#129DE4]"
                       >
                         {tag}
                       </span>
@@ -210,9 +241,10 @@ export default function EducacaoPage() {
       <section className="bg-muted/30 py-20">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="mx-auto mb-16 max-w-3xl text-center space-y-4">
-            <h2 className="font-heading text-3xl font-bold md:text-4xl">
+            <h2 className="font-heading text-3xl font-bold md:text-4xl text-[#002059]">
               Programas Permanentes
             </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-[#129DE4] to-[#14E259] mx-auto mb-6"></div>
             <p className="text-lg leading-relaxed text-muted-foreground">
               Iniciativas continuadas que garantem formação prática e apoio às
               comunidades educativas ao longo de todo o ano.
@@ -222,22 +254,23 @@ export default function EducacaoPage() {
             {programasPermanentes.map((programa) => (
               <Card
                 key={programa.title}
-                className="border-2 border-accent/20 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:shadow-lg"
+                className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group"
               >
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
                 <CardContent className="space-y-4 p-6">
                   <div className="flex items-start gap-3">
-                    <ClipboardList className="h-6 w-6 text-accent" />
-                    <h3 className="font-heading text-xl font-semibold">
+                    <ClipboardList className="h-6 w-6 text-[#129DE4]" />
+                    <h3 className="font-heading text-xl font-semibold text-[#14E259]">
                       {programa.title}
                                 </h3>
                   </div>
-                  <p className="text-muted-foreground">
+                  <p className="text-[#002059]">
                     {programa.description}
                   </p>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
+                  <ul className="space-y-2 text-sm text-[#002059]">
                     {programa.highlights.map((highlight) => (
                       <li key={highlight} className="flex gap-2">
-                        <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-accent" />
+                        <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-[#14E259]" />
                         <span>{highlight}</span>
                       </li>
                     ))}
@@ -252,9 +285,10 @@ export default function EducacaoPage() {
       <section className="bg-background py-20">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="mx-auto mb-16 max-w-3xl text-center space-y-4">
-            <h2 className="font-heading text-3xl font-bold md:text-4xl">
+            <h2 className="font-heading text-3xl font-bold md:text-4xl text-[#002059]">
               Eventos e Workshops
             </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-[#129DE4] to-[#14E259] mx-auto mb-6"></div>
             <p className="text-lg leading-relaxed text-muted-foreground">
               Agenda dinâmica com oportunidades de partilha de conhecimento,
               desenvolvimento de competências e integração com parceiros.
@@ -264,27 +298,28 @@ export default function EducacaoPage() {
             {eventosWorkshops.map((evento) => (
               <Card
                 key={evento.id}
-                className="border-2 border-secondary/20 transition-all duration-300 hover:-translate-y-1 hover:border-secondary/40 hover:shadow-lg"
+                className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group"
               >
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
                 <CardContent className="space-y-4 p-6">
                   <div className="flex items-start gap-3">
-                    <Compass className="h-6 w-6 text-secondary" />
-                    <h3 className="font-heading text-xl font-semibold">
+                    <Compass className="h-6 w-6 text-[#129DE4]" />
+                    <h3 className="font-heading text-xl font-semibold text-[#14E259]">
                       {evento.title}
                     </h3>
             </div>
-                  <p className="text-muted-foreground">{evento.description}</p>
-                  <div className="space-y-2 text-sm text-muted-foreground">
+                  <p className="text-[#002059]">{evento.description}</p>
+                  <div className="space-y-2 text-sm text-[#002059]/70">
                     <span className="flex items-center gap-2">
-                      <Calendar className="h-4 w-4 text-secondary" />
+                      <Calendar className="h-4 w-4 text-[#129DE4]" />
                       {evento.date}
                     </span>
                     <span className="flex items-center gap-2">
-                      <MapPin className="h-4 w-4 text-secondary" />
+                      <MapPin className="h-4 w-4 text-[#129DE4]" />
                       {evento.location}
                     </span>
                     <span className="flex items-center gap-2">
-                      <Users className="h-4 w-4 text-secondary" />
+                      <Users className="h-4 w-4 text-[#129DE4]" />
                       {evento.audience}
                     </span>
                 </div>

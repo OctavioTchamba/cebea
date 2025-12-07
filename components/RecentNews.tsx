@@ -66,9 +66,10 @@ export default function RecentNews() {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-balance mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-balance mb-4 text-[#002059]">
               Últimas Notícias
             </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-[#129DE4] to-[#14E259] mx-auto mb-6"></div>
             <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
               Acompanhe as novidades, descobertas e eventos do CEBEA
             </p>
@@ -83,10 +84,11 @@ export default function RecentNews() {
                 }`}
               >
                 <div className={`${index === 0 ? 'md:flex' : ''}`}>
-                  <div className={`${index === 0 ? 'md:w-1/2' : 'h-48'} bg-gradient-to-br from-green-400 to-blue-500 relative`}>
-                    <div className="absolute inset-0 bg-black/20"></div>
+                  <div className={`${index === 0 ? 'md:w-1/2' : 'h-48'} bg-cover bg-center relative`} style={{backgroundImage: `url(${index === 0 ? 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop' : index === 1 ? 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&h=400&fit=crop' : index === 2 ? 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop' : 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=600&h=400&fit=crop'})`}}>
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#129DE4]/80 to-[#14E259]/80"></div>
+                    <div className="absolute inset-0 bg-black/30"></div>
                     <div className="absolute top-4 left-4">
-                      <span className={`px-3 py-1 rounded-full  text-xs font-semibold ${getCategoryColor(article.category)}`}>
+                      <span className={`px-3 py-1 rounded-full text-xs font-semibold ${getCategoryColor(article.category)}`}>
                         {article.category}
                       </span>
                     </div>

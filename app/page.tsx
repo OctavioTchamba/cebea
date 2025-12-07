@@ -11,6 +11,7 @@ import Objetives from "@/components/Objetivos";
 import Link from "next/link";
 import Research from "@/components/Research";
 import LightRays from "@/components/LightRays";
+import ImpactStats from "@/components/ImpactStats";
 
 export default function HomePage(){
   return(
@@ -32,7 +33,7 @@ export default function HomePage(){
       {/**Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: `url(/hero-forest.jpg)`}}>
-          <div className="absolute inset-0 bg-linear-to-b from black/60 via-black/40 to-black/60"/>
+          <div className="absolute inset-0 bg-linear-to-r  from-[#002059] to-[#002059] opacity-50"/>
         
         </div>
         <div className="relative z-10 container-custom text-center text-white">
@@ -47,7 +48,7 @@ export default function HomePage(){
             
             <Button 
               size="lg" 
-              className="bg-primary hover:bg-primary-hover text-primary-foreground text-lg px-8 py-6 shadow-hover"
+              className="bg-[#14E259] hover:bg-primary-hover text-primary-foreground text-lg px-8 py-6 shadow-hover"
             >
               <Link href="/pages/sobre">Saiba Mais sobre o CEBEA</Link>
               
@@ -56,7 +57,7 @@ export default function HomePage(){
             <Button 
               size="lg" 
               variant="outline"
-              className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 text-lg px-8 py-6"
+              className="bg-white/10 backdrop-blur-sm border-white text-white hover:bg-white/20 text-lg px-8 py-6"
             >
               Ver Projetos
             </Button>
@@ -74,6 +75,9 @@ export default function HomePage(){
       
 
       <Objetives/>
+      
+      {/* Nosso Impacto em Números */}
+      <ImpactStats />
       
       {/* Projetos em Destaque */}
       <FeaturedProjects />

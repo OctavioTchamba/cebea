@@ -41,9 +41,10 @@ export default function Areas() {
       <section className="bg-background py-20">
         <div className="container mx-auto max-w-6xl px-4">
           <div className="mx-auto mb-16 max-w-3xl text-center space-y-4">
-            <h2 className="font-heading text-3xl font-bold md:text-4xl">
+            <h2 className="font-heading text-3xl font-bold md:text-4xl text-[#002059]">
               Selecione uma área para explorar
             </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-[#129DE4] to-[#14E259] mx-auto mb-6"></div>
             <p className="text-lg leading-relaxed text-muted-foreground">
               Explore descrições completas, atividades em curso, imagens e
               iniciativas relacionadas a cada área estratégica do Centro.
@@ -51,38 +52,53 @@ export default function Areas() {
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {areasDeAtuacao.map((area) => {
+            {areasDeAtuacao.map((area, index) => {
               const Icon =
                 iconMap[area.icon as keyof typeof iconMap] ?? TreePine;
+              
+              // Imagens do Unsplash baseadas no tipo de área
+              const areaImages = [
+                'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&h=400&fit=crop', // Natureza/Biodiversidade
+                'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&h=400&fit=crop', // Educação
+                'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop', // Floresta
+                'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=600&h=400&fit=crop', // Sustentabilidade
+                'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&h=400&fit=crop', // Botânica
+                'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop', // Zoologia
+              ];
+              const imageUrl = areaImages[index % areaImages.length];
 
               return (
                 <Card
                   key={area.slug}
-                  className="flex h-full flex-col border-2 border-primary/15 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg"
+                  className="relative flex h-full flex-col border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group bg-white"
                 >
+                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
+                  <div className="relative h-48 bg-cover bg-center" style={{backgroundImage: `url(${imageUrl})`}}>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                  </div>
                   <CardContent className="flex flex-1 flex-col gap-4 p-6">
-                    <div className="flex items-center gap-4">
-                      <span className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                        <Icon className="h-6 w-6 text-primary" />
+                    <div className="flex items-center gap-4 -mt-8 relative z-10">
+                      <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#129DE4]/10 backdrop-blur-sm bg-white/90">
+                        <Icon className="h-6 w-6 text-[#129DE4]" />
                       </span>
-                      <h3 className="font-heading text-xl font-semibold">
+                      <h3 className="font-heading text-xl font-semibold text-[#14E259]">
                         {area.title}
                       </h3>
                     </div>
-                    <p className="text-muted-foreground">{area.summary}</p>
-                    <ul className="space-y-2 text-sm text-muted-foreground">
+                    <p className="text-[#002059]">{area.summary}</p>
+                    <ul className="space-y-2 text-sm text-[#002059]">
                       {area.highlights.slice(0, 3).map((highlight) => (
                         <li key={highlight} className="flex gap-2">
-                          <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-primary" />
+                          <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-[#14E259]" />
                           <span>{highlight}</span>
                         </li>
                       ))}
                     </ul>
                   </CardContent>
-                  <CardFooter className="border-t border-primary/10 bg-muted/30 px-6 py-4">
+                  <CardFooter className="border-t border-[#129DE4]/10 bg-muted/30 px-6 py-4">
                     <Link
                       href={`/pages/areas/${area.slug}`}
-                      className="flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
+                      className="flex items-center gap-2 text-sm font-semibold text-[#129DE4] transition-colors hover:text-[#0d8bc7]"
                     >
                       Explorar área
                       <ArrowRight className="h-4 w-4" />
