@@ -1,3 +1,5 @@
+"use client";
+
 import About from "@/components/About";
 import Missions from "@/components/Mission";
 import Stats from "@/components/Stats";
@@ -12,8 +14,22 @@ import Link from "next/link";
 import Research from "@/components/Research";
 import LightRays from "@/components/LightRays";
 import ImpactStats from "@/components/ImpactStats";
+import useEmblaCarousel from "embla-carousel-react";
+ import Autoplay from "embla-carousel-autoplay";
+import Image from "next/image";
+
 
 export default function HomePage(){
+
+  const [emblaRef] = useEmblaCarousel({
+    loop: true,
+    
+    
+    
+   
+    
+    
+  }, [Autoplay({delay: 2000, stopOnInteraction: false})]);
   return(
     <div className="min-h-screen">
       <div className="absolute inset-0 top-0 ">
@@ -31,27 +47,63 @@ export default function HomePage(){
   />
         </div>  
       {/**Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-cover bg-center" style={{backgroundImage: `url(/hero-forest.jpg)`}}>
-          <div className="absolute inset-0 bg-linear-to-r  from-[#002059] to-[#002059] opacity-50"/>
+       {/* Hero Section com Carousel */}
+       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         
+        {/* Carousel de Imagens */}
+        <div className="absolute inset-0 overflow-hidden" ref={emblaRef}>
+          <div className="flex h-full">
+            {/* Slide 1 */}
+            <div className="flex-[0_0_100%] min-w-0 relative">
+              <Image 
+                src="/hero-forest.jpg" 
+                alt="Hero Forest" 
+                fill 
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#002059]/70 to-[#002059]/70" />
+            </div>
+
+            {/* Slide 2 */}
+            <div className="flex-[0_0_100%] min-w-0 relative">
+              <Image 
+                src="/imagem2.jpg" 
+                alt="Imagem 2" 
+                fill 
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#002059]/70 to-[#002059]/70" />
+            </div>
+
+            {/* Slide 3 */}
+            <div className="flex-[0_0_100%] min-w-0 relative">
+              <Image 
+                src="/imagem4.jpg" 
+                alt="Imagem 4" 
+                fill 
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#002059]/70 to-[#002059]/70" />
+            </div>
+          </div>
         </div>
-        <div className="relative z-10 container-custom text-center text-white">
+
+        {/* Conteúdo sobre o carousel */}
+        <div className="relative z-10 container mx-auto px-4 text-center text-white">
           <h1 className="font-heading text-5xl md:text-7xl font-bold mb-6 animate-fade-in">
             Conhecer para
-            <span className="block mt-2 text-secondary">Conservar</span>
+            <span className="block mt-2 text-[#14E259]">Conservar</span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto text-white/90 animate-fade-in">
             Dedicados à pesquisa em biodiversidade, educação ambiental e conservação da natureza
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
-            
             <Button 
               size="lg" 
-              className="bg-[#14E259] hover:bg-primary-hover text-primary-foreground text-lg px-8 py-6 shadow-hover"
+              className="bg-[#14E259] hover:bg-[#12c94e] text-white text-lg px-8 py-6"
             >
               <Link href="/pages/sobre">Saiba Mais sobre o CEBEA</Link>
-              
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             <Button 
@@ -64,7 +116,7 @@ export default function HomePage(){
           </div>
         </div>
       </section>
-      
+    
       {/* Estatísticas<Stats /> */}
       
       
