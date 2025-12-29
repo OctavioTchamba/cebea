@@ -111,7 +111,8 @@ export default function HomePage(){
               variant="outline"
               className="bg-white/10 backdrop-blur-sm border-white text-white hover:bg-white/20 text-lg px-8 py-6"
             >
-              Ver Projetos
+              
+              <Link href="/pages/projetos">Ver Projetos</Link>
             </Button>
           </div>
         </div>

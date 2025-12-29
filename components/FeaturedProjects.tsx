@@ -79,7 +79,7 @@ export default function FeaturedProjects(){
                </div>
                <div className="mt-5 flex items-center justify-center">
                 <Button className="mt-5 ">
-                 <Link href="/projets" className="inline-flex items-center">
+                 <Link href="/pages/projetos" className="inline-flex items-center">
                  Ver mais Projetos
                  <ArrowRight className="ml-1 h-3 w-3"/>
                  </Link>

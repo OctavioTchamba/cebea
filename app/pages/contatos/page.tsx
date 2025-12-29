@@ -15,17 +15,17 @@ import { Button } from "@/components/ui/button";
 const contactos = [
   {
     title: "Email institucional",
-    value: "cebea@iscedhuila.ao",
+    value: "herbario.museu@isced-huila.ed.ao",
     icon: Mail,
   },
   {
     title: "Telefone",
-    value: "+244 923 456 789",
+    value: "+244 940 729 322",
     icon: Phone,
   },
   {
     title: "Endereço",
-    value: "Campus do ISCED-Huíla, Bairro Académico, Lubango",
+    value: "Rua Sarmento Rodrigues, nº02 Lubango, Huíla.",
     icon: MapPin,
   },
   {

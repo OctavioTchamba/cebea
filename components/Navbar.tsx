@@ -14,14 +14,14 @@ export default function Navbar() {
 
     const navigation = [
         { name: "Home", href: "/" },
-        { name: "About Us", href: "/pages/sobre" },
-        { name: "Research", href: "/pages/pesquisas" },
-        { name: "Education", href: "/pages/educacao" },
-        { name: "Areas of Action", href: "/pages/areas" },
-        { name: "News & Events", href: "/pages/noticias" },
-        { name: "Publications", href: "/pages/publicacao" },
-        { name: "Team", href: "/team" },
-        { name: "Contact", href: "/pages/contatos" },
+        { name: "Sobre Nós", href: "/pages/sobre" },
+        { name: "Pesquisas", href: "/pages/pesquisas" },
+        { name: "Educação", href: "/pages/educacao" },
+        { name: "Áreas de ação", href: "/pages/areas" },
+        { name: "Notícias e Eventos", href: "/pages/noticias" },
+        { name: "Publicações", href: "/pages/publicacao" },
+        { name: "Equipa", href: "/pages/equipa" },
+        { name: "Contactos", href: "/pages/contatos" },
       ]
     return(
         <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -33,7 +33,7 @@ export default function Navbar() {
             
             <div className="flex flex-col mt-5">
               <Image 
-                src="/logo-cebea3.png"
+                src="/02 CEBEA.png"
                 alt="CEBEA Logo"
                 width={150}
                 height={100}
