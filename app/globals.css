@@ -81,6 +81,9 @@
   --soft-shadow: 0 4px 20px rgba(140, 45, 25, 0.08);
   --hover-shadow: 0 8px 30px rgba(140, 45, 25, 0.15);
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  --earth: 25 35% 25%;
+  --gradient-earth: linear-gradient(180deg, hsl(220 20% 6%) 0%, hsl(25 25% 10%) 100%);
 }
 
 .dark {
@@ -159,6 +162,9 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+
+ 
 }
 
 @layer base {
@@ -195,6 +201,8 @@
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-primary/80;
   }
+
+  
 }
 
 @layer components {
@@ -232,5 +240,48 @@
   /* Container */
   .container-custom {
     @apply container mx-auto px-4 md:px-6 lg:px-8;
+  }
+
+   /* Editorial Title */
+   .title-editorial {
+    font-family: var(--font-display);
+    @apply text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-none;
+  }
+
+  /* Subtitle */
+  .subtitle-scientific {
+    font-family: var(--font-body);
+    @apply text-lg md:text-xl text-muted-foreground leading-relaxed max-w-2xl;
+  }
+
+    /* Section Padding */
+    .section-padding {
+      @apply py-24 md:py-32 lg:py-40;
+    }
+  
+    /* Container */
+    .container-scientific {
+      @apply max-w-7xl mx-auto px-6 md:px-8 lg:px-12;
+    }
+     /* Glass Card */
+  .glass-card {
+    @apply bg-card/50 backdrop-blur-xl border border-white/5 rounded-2xl;
+    background: var(--gradient-glass);
+  }
+
+  /* Card Hover Effect */
+  .card-hover {
+    @apply transition-all duration-500 ease-out;
+  }
+  
+  .card-hover:hover {
+    @apply -translate-y-2 shadow-lg;
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Gradient Text */
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-gold);
   }
 }

@@ -26,10 +26,16 @@ export default function Stats() {
       label: "Publicações Científicas",
       description: "Artigos e relatórios"
     }
+    {
+      icon: <Award className="w-8 h-8 text-orange-600" />,
+      number: "25+",
+      label: "Investigadores",
+      description: "Artigos e relatórios"
+    }
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-r from-green-50 to-blue-50">
+    <section className="py-20 bg-linear-to-r from-green-50 to-blue-50">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
@@ -41,7 +47,7 @@ export default function Stats() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-3 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div 
                 key={index}

@@ -2,16 +2,29 @@
 
 import { Ghost, Leaf, Menu, Moon, Sun } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";// Update path as necessary
 import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 import Image from "next/image";
+import {motion, AnimatePresence} from "framer-motion"
+import { cn } from "@/lib/utils";
 
 export default function Navbar() {
     const { theme, setTheme } = useTheme();
     const [isOpen, setIsOpen] = useState(false);
+    const [selected, SetSelected] = useState(false)
+    const [isScrolled, setIsScrolled] = useState(false);
 
+
+    //este useeffect adiciona um delay no header
+    useEffect(() => {
+      const handleScroll = () => {
+        setIsScrolled(window.scrollY > 50);
+      };
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
     const navigation = [
         { name: "Home", href: "/" },
         { name: "Sobre Nós", href: "/pages/sobre" },
@@ -24,12 +37,25 @@ export default function Navbar() {
         { name: "Contactos", href: "/pages/contatos" },
       ]
     return(
-        <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <>
+      <motion.header
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6 }}
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+        isScrolled
+          ? "bg-background/80 backdrop-blur-xl border-b border-border/50"
+          : "bg-transparent"
+      )}
+    >
+      
+        <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
            
            <div className="container mx-auto px-4 py-2">
             <div className="flex h-16 items-center justify-between">
             {/*Logo */}
-            <Link href="/" className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2 transition-opacity hover:opacity-80 active:opacity-70">
             
             <div className="flex flex-col mt-5">
               <Image 
@@ -37,7 +63,8 @@ export default function Navbar() {
                 alt="CEBEA Logo"
                 width={150}
                 height={100}
-                className="object-contain "
+                className="object-contain transition-transform hover:scale-105"
+                priority
               />
    
             </div>
@@ -51,15 +78,17 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
-                className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground hover:bg-accent rounded-md transition-colors"
+                onClick={() => SetSelected(item.name)}
+                className="relative px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground rounded-md no-underline transition-all duration-300 hover:bg-accent/50 group"
               >
-                {item.name}
+                <span className="relative z-10">{item.name}</span>
+                <span className="absolute bottom-0 left-1/2 h-0.5 w-0 bg-sky-600 transition-all duration-300 group-hover:left-0 group-hover:w-full -translate-x-1/2 group-hover:translate-x-0"></span>
               </Link>
             ))}
           </nav>
           {/**Actions */}
           <Button variant="ghost" size="icon" onClick={()=> setTheme(theme === "dark"? "light": "dark")} 
-            className="hidden sm:inline-flex"
+            className="hidden sm:inline-flex transition-all duration-300 hover:bg-accent hover:scale-110 active:scale-95"
             >
                 <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
               <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
@@ -70,8 +99,8 @@ export default function Navbar() {
            {/* Mobile Menu */}
            <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild className="lg:hidden">
-                <Button variant="ghost" size="icon">
-                  <Menu className="h-5 w-5" />
+                <Button variant="ghost" size="icon" className="transition-all duration-300 hover:bg-accent hover:scale-110 active:scale-95">
+                  <Menu className="h-5 w-5 transition-transform hover:rotate-90" />
                   <span className="sr-only">Toggle menu</span>
                 </Button>
               </SheetTrigger>
@@ -82,19 +111,20 @@ export default function Navbar() {
                       key={item.name}
                       href={item.href}
                       onClick={() => setIsOpen(false)}
-                      className="px-4 py-2 text-lg font-medium text-foreground/80 hover:text-foreground hover:bg-accent rounded-md transition-colors"
+                      className="relative px-4 py-2 text-lg font-medium text-foreground/80 hover:text-foreground hover:bg-accent rounded-md transition-all duration-300 hover:translate-x-2 hover:shadow-md group"
                     >
-                      {item.name}
+                      <span className="relative z-10">{item.name}</span>
+                      <span className="absolute left-0 top-0 h-full w-1 bg-sky-600 scale-y-0 group-hover:scale-y-100 transition-transform duration-300 rounded-r"></span>
                     </Link>
                   ))}
                   <Button
                     variant="outline"
                     onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                    className="mt-4"
+                    className="mt-4 transition-all duration-300 hover:bg-accent hover:scale-105 active:scale-95 hover:shadow-md"
                   >
                     <Sun className=" h-5 w-5 mr-2 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
                     <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-                    <span className="ml-6">Toggle theme</span>
+                    <span className="ml-6">Mudar Tema</span>
                   </Button>
                 </nav>
               </SheetContent>
@@ -103,5 +133,7 @@ export default function Navbar() {
 
            </div>
         </header>
+        </motion.header>
+        </>
     )
 }

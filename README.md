@@ -2,7 +2,39 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, run the development server:
+### Configuração do Firebase
+
+Antes de iniciar o projeto, você precisa configurar as variáveis de ambiente do Firebase:
+
+1. Crie um arquivo `.env.local` na raiz do projeto
+2. Adicione as seguintes variáveis com suas credenciais do Firebase:
+
+```env
+NEXT_PUBLIC_FIREBASE_API_KEY=sua-api-key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=seu-projeto-id.firebaseapp.com
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=seu-projeto-id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=seu-projeto-id.appspot.com
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=seu-messaging-sender-id
+NEXT_PUBLIC_FIREBASE_APP_ID=seu-app-id
+NEXT_PUBLIC_FIREBASE_MEASURE_ID=seu-measurement-id
+```
+
+Para obter essas credenciais:
+1. Acesse o [Console do Firebase](https://console.firebase.google.com/)
+2. Selecione seu projeto
+3. Vá em Configurações do Projeto (ícone de engrenagem)
+4. Na seção "Seus apps", selecione o app web ou crie um novo
+5. Copie as credenciais do objeto `firebaseConfig`
+
+### Executando o projeto
+
+Primeiro, instale as dependências:
+
+```bash
+npm install
+```
+
+Depois, execute o servidor de desenvolvimento:
 
 ```bash
 npm run dev
