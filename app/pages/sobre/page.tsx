@@ -288,7 +288,7 @@ export default function Sobre() {
             <Card className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group bg-white">
               <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
               <div className="relative h-40 bg-cover bg-center" style={{backgroundImage: `url(https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&h=400&fit=crop)`}}>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent"></div>
               </div>
               <CardContent className="p-6 space-y-4">
                 <div className="h-12 w-12 rounded-lg bg-[#129DE4]/10 flex items-center justify-center group-hover:bg-[#129DE4]/20 transition-colors -mt-8 relative z-10">

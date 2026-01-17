@@ -1,6 +1,6 @@
-import { ArrowRight, Mail, Linkedin, GraduationCap, User2Icon } from "lucide-react";
-import { Button } from "./ui/button";
-import Link from "next/link";
+"use client"
+
+import { motion } from "framer-motion";
 
 export default function Team() {
   const team = [
@@ -52,83 +52,59 @@ export default function Team() {
 
   return (
     <section className="py-20  bg-background">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="md:text-4xl font-bold text-xl mb-4 text-[#002059]">
-              Nossa Equipe
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-[#129DE4] to-[#14E259] mx-auto mb-6"></div>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-              Conheça os pesquisadores e educadores que fazem a diferença na conservação ambiental
-            </p>
-          </div>
+      <div className="bg-muted-foreground"></div>
+    <div className="container-custom">
+      <motion.div 
+      initial={{opacity:0, y: 40}}
+      animate={{opacity: 1, y: 0}}
+      transition={{ duration: 0.8}}
+      className="text-center mt-5"
+      >
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((member) => (
-              <div 
-                key={member.id}
-                className="relative bg-white border-2 border-transparent hover:border-[#14E259]/30 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group"
-              >
-                <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259] z-10"></div>
-                <div className="h-64 bg-gradient-to-br from-[#129DE4] to-[#14E259] relative">
-                  <div className="absolute inset-0 bg-black/20">
-                   <User2Icon className="w-23 h-23 rounded-full bg-white/50 ml-auto mt-15 mx-auto"/>
-                  </div>
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <span className="bg-white/90 text-[#002059] px-3 py-1 rounded-full text-sm font-heading font-semibold">
-                      {member.specialization}
-                    </span>
-                  </div>
-                </div>
-                
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold font-heading mb-1 text-[#14E259]">
-                    {member.name}
-                  </h3>
-                  <p className="text-[#129DE4] font-semibold mb-2">
-                    {member.position}
-                  </p>
-                  
-                  <div className="flex items-center text-sm text-[#002059]/70 leading-relaxed mb-3">
-                    <GraduationCap className="w-4 h-4 mr-2 text-[#129DE4]" />
-                    {member.education}
-                  </div>
-                  
-                  <p className="text-[#002059] text-sm mb-4 line-clamp-3">
-                    {member.bio}
-                  </p>
-                  
-                  <div className="flex space-x-2">
-                    <Link 
-                      href={`mailto:${member.email}`}
-                      className="flex-1 bg-[#002059]/10 hover:bg-[#002059]/20 text-[#002059] px-3 py-2 rounded-lg text-center text-sm transition-colors"
-                    >
-                      <Mail className="w-4 h-4 mx-auto" />
-                    </Link>
-                    <Link 
-                      href={`https://linkedin.com/in/${member.linkedin}`}
-                      className="flex-1 bg-[#129DE4]/10 hover:bg-[#129DE4]/20 text-[#129DE4] px-3 py-2 rounded-lg text-center text-sm transition-colors"
-                    >
-                      <Linkedin className="w-4 h-4 mx-auto" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+<span className="text-[#14E259] text-sm font-medium uppercase tracking-widest mb-4 block">
+            Equipa & Parcerias
+          </span>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+            Ciência feita por
+            <span className="text-[#14E259] block">pessoas extraordinárias</span>
+          </h2>
+          <p className="text-muted-foreground text-lg mt-6">
+            Uma equipa multidisciplinar e internacional dedicada à excelência científica.
+          </p>
 
-          <div className="text-center mt-12">
-            <Button 
-              size="lg"
-              className="bg-[#129DE4] hover:bg-[#0d8bc7] text-white px-8 py-3"
-            >
-              Conheça Toda Nossa Equipe
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-          </div>
+      </motion.div>
+      {/**Team grid */}
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+  {team.map((team)=>(
+      <motion.div
+      key={team.id}
+      initial={{opacity: 0, y:30}}
+      animate={{opacity: 1, y:0}}
+      transition={{ duration: 0.6, delay: team.id * 0.1 }}
+      className={`group relative overflow-hidden rounded-2xl card-hover ${
+        team.id === 0 ? 'col-span-2 row-span-2' : ''
+      }`}
+      >
+        <div className={`${team.id === 0 ? 'aspect-square' : 'aspect-3/4'} overflow-hidden`}>
+          <img src={team.image} alt=""
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+           />
+
+
         </div>
+
+        <div className="absolute bottom-0 left-0 right-0  p-4 bg-amber-400 group-hover:scale-3d">
+
+        </div>
+
+      </motion.div>
+        ))}
       </div>
+      
+
+
+    </div>
+          
     </section>
   );
 }

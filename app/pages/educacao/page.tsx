@@ -1,6 +1,10 @@
-import { Button } from "@/components/ui/button";
+"use client"
 import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+
+import { Button } from "@/components/ui/button";
 import {
   Calendar,
   ClipboardList,
@@ -8,117 +12,47 @@ import {
   Compass,
   GraduationCap,
   MapPin,
+  Sparkles,
   Users,
+  Users2,
+  BookOpen, Award,
 } from "lucide-react";
 import Image from "next/image";
 
-const formacoesRecentes = [
+
+const programs = [
   {
-    id: "sig-ecologia",
-    title: "Curso Intensivo de SIG para Ecologia Aplicada",
-    description:
-      "Fundamentos de sistemas de informação geográfica, recolha de dados em campo e análise espacial aplicada à conservação.",
-    date: "Janeiro 2025",
-    duration: "40 horas",
-    location: "ISCED-Huíla (presencial)",
-    focus: ["SIG", "Análise Espacial", "Conservação"],
+    icon: BookOpen,
+    title: "Programas de Mestrado",
+    description: "Formação avançada em Biodiversidade, Ecologia e Conservação com componente prática intensiva.",
+    cta: "Candidaturas Abertas",
+    highlight: true,
   },
   {
-    id: "taxonomia-avancada",
-    title: "Formação Avançada em Taxonomia e Colecções Científicas",
-    description:
-      "Metodologias de preparação, curadoria e digitalização de espécimes zoológicos e botânicos.",
-    date: "Fevereiro 2025",
-    duration: "32 horas",
-    location: "Laboratórios CEBEA",
-    focus: ["Taxonomia", "Colecções", "Bases de Dados"],
+    icon: Award,
+    title: "Doutoramento",
+    description: "Investigação de fronteira com supervisão de especialistas reconhecidos internacionalmente.",
+    cta: "Saber Mais",
+    highlight: false,
   },
   {
-    id: "remoto-clima",
-    title: "Deteção Remota e Alterações Climáticas",
-    description:
-      "Interpretação de imagens de satélite, modelação de risco climático e monitorização de uso do solo.",
-    date: "Abril 2025",
-    duration: "24 horas",
-    location: "Formato híbrido",
-    focus: ["Deteção remota", "Alterações Climáticas"],
+    icon: Users2,
+    title: "Cursos de Verão",
+    description: "Programas intensivos de campo e laboratório para estudantes e profissionais.",
+    cta: "Ver Próximos Cursos",
+    highlight: false,
   },
   {
-    id: "educacao-comunidades",
-    title: "Ações Educativas com Comunidades Rurais",
-    description:
-      "Ferramentas participativas para educação ambiental e planeamento de campanhas de sensibilização.",
-    date: "Maio 2025",
-    duration: "3 fins de semana",
-    location: "Municípios parceiros",
-    focus: ["Educação Ambiental", "Comunidade", "Sustentabilidade"],
+    icon: Sparkles,
+    title: "Workshops & Seminários",
+    description: "Eventos regulares com investigadores convidados e apresentação de resultados.",
+    cta: "Calendário",
+    highlight: false,
   },
 ];
-
-const programasPermanentes = [
-  {
-    title: "Academia Jovem Naturalista",
-    description:
-      "Programa anual para estudantes do ensino secundário com aulas práticas em ecossistemas locais.",
-    highlights: [
-      "Mentorias com investigadores do CEBEA",
-      "Saídas de campo trimestrais",
-      "Projetos científicos escolares",
-    ],
-  },
-  {
-    title: "Laboratório Vivo de Ecologia",
-    description:
-      "Residência prática para licenciandos com projetos integrados em ecologia, SIG e conservação.",
-    highlights: [
-      "40 horas de prática laboratorial",
-      "Integração com linhas de investigação",
-      "Certificação e publicação de resultados",
-    ],
-  },
-  {
-    title: "Rede de Educadores Ambientais",
-    description:
-      "Comunidade de professores e técnicos municipais com apoio continuado e recursos pedagógicos.",
-    highlights: [
-      "Webinars mensais",
-      "Toolkit de atividades ao ar livre",
-      "Biblioteca digital atualizada",
-    ],
-  },
-];
-
-const eventosWorkshops = [
-  {
-    id: "climate-hackathon",
-    title: "Hackathon de Dados Climáticos",
-    description:
-      "Desafio colaborativo para desenvolver soluções baseadas em dados para adaptação climática.",
-    date: "18–19 Julho 2025",
-    location: "ISCED-Huíla",
-    audience: "Estudantes universitários e profissionais de SIG",
-  },
-  {
-    id: "oficina-herbario",
-    title: "Oficina de Digitalização do Herbário LUBA",
-    description:
-      "Workshop prático de fotografia científica e gestão de metadados para coleções botânicas.",
-    date: "2 Agosto 2025",
-    location: "CEBEA",
-    audience: "Técnicos de coleções e voluntários",
-  },
-  {
-    id: "comunidades-2025",
-    title: "Encontro de Educação Ambiental Comunitária",
-    description:
-      "Partilha de experiências com líderes comunitários e ONG’s parceiras do sul de Angola.",
-    date: "21 Setembro 2025",
-    location: "Lubango (Centro Cultural)",
-    audience: "Organizações comunitárias e parceiros institucionais",
-  },
-];
-
 export default function EducacaoPage() {
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
   return (
     <div className="min-h-screen">
       <section
@@ -150,192 +84,90 @@ export default function EducacaoPage() {
             </div>
         </section>
 
-      <section className="bg-background py-20">
-        <div className="container mx-auto max-w-6xl px-4">
-          <div className="mx-auto mb-16 max-w-4xl text-center space-y-4">
-            <h2 className="font-heading text-3xl font-bold md:text-4xl text-[#002059]">
-              Formações Recentes
+        <section ref={sectionRef} className="section-padding relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-earth/5 to-background" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl" />
+      
+      <div className="container-scientific relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left Content */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8 }}
+          >
+            <span className="text-primary text-sm font-medium uppercase tracking-widest mb-4 block">
+              Educação & Formação
+            </span>
+            <h2 className="font-display text-4xl md:text-5xl font-bold mb-6 leading-tight">
+              Formamos os
+              <span className="text-gradient block">cientistas do futuro</span>
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-[#129DE4] to-[#14E259] mx-auto mb-6"></div>
-            <p className="text-lg leading-relaxed text-muted-foreground ">
-              Aprendizagem contínua nas áreas de ecologia, taxonomia, SIG,
-              deteção remota, bases de dados e alterações climáticas.
+            <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+              O nosso compromisso com a educação vai além da sala de aula. 
+              Oferecemos experiências transformadoras que combinam teoria, 
+              prática de campo e investigação de ponta.
             </p>
-            <Card>  
-              <CardContent> 
-                <div className="grid  block it ems-center gap-3">
-                  <Image src="/imagem6.jpg" alt="Imagem" width={100} height={100} className="relative h-48 bg-cover bg-center"/>
-                  <Calendar className="h-6 w-6 text-[#129DE4]" />
-                  <h3 className="font-heading text-xl font-semibold text-[#14E259]">
-                    Formação em Ecologia
-                  </h3>
-                </div>
-                <p className="text-[#002059]">
-                  Capacitando a próxima geração através de programas educacionais inovadores que promovem a
-                  gestão ambiental e a alfabetização científica.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                 
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-          <div className="mx-auto mb-16 max-w-4xl text-center space-y-4">
-            <h2 className="font-heading text-3xl font-bold md:text-4xl text-[#002059]">
-              Lista de Formações Recentes
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-[#129DE4] to-[#14E259] mx-auto mb-6"></div>
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              Aprendizagem contínua nas áreas de ecologia, taxonomia, SIG,
-              deteção remota, bases de dados e alterações climáticas.
-            </p>
-          </div>
 
-          <div className="grid gap-6 md:grid-cols-2">
-            {formacoesRecentes.map((item) => (
-              <Card
-                key={item.id}
-                className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group"
-              >
-                <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
-                <CardContent className="flex h-full flex-col gap-4 p-6">
-                  <div>
-                    <h3 className="font-heading text-xl font-semibold text-[#14E259]">
-                      {item.title}
-                    </h3>
-                    <p className="mt-2 text-[#002059]">
-                      {item.description}
-                    </p>
-                </div>
-                  <div className="grid gap-2 text-sm text-[#002059]/70 md:grid-cols-2">
-                    <span className="flex items-center gap-2">
-                      <Calendar className="h-4 w-4 text-[#129DE4]" />
-                      {item.date}
-                    </span>
-                    <span className="flex items-center gap-2">
-                      <Clock className="h-4 w-4 text-[#129DE4]" />
-                      {item.duration}
-                    </span>
-                    <span className="flex items-center gap-2 md:col-span-2">
-                      <MapPin className="h-4 w-4 text-[#129DE4]" />
-                      {item.location}
-                    </span>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {item.focus.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full bg-[#129DE4]/10 px-3 py-1 text-xs font-medium uppercase tracking-wide text-[#129DE4]"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-            </div>
-        </section>
-
-      <section className="bg-muted/30 py-20">
-        <div className="container mx-auto max-w-6xl px-4">
-          <div className="mx-auto mb-16 max-w-3xl text-center space-y-4">
-            <h2 className="font-heading text-3xl font-bold md:text-4xl text-[#002059]">
-              Programas Permanentes
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-[#129DE4] to-[#14E259] mx-auto mb-6"></div>
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              Iniciativas continuadas que garantem formação prática e apoio às
-              comunidades educativas ao longo de todo o ano.
-            </p>
-                </div>
-          <div className="grid gap-6 lg:grid-cols-3">
-            {programasPermanentes.map((programa) => (
-              <Card
-                key={programa.title}
-                className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group"
-              >
-                <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
-                <CardContent className="space-y-4 p-6">
-                  <div className="flex items-start gap-3">
-                    <ClipboardList className="h-6 w-6 text-[#129DE4]" />
-                    <h3 className="font-heading text-xl font-semibold text-[#14E259]">
-                      {programa.title}
-                                </h3>
-                  </div>
-                  <p className="text-[#002059]">
-                    {programa.description}
-                  </p>
-                  <ul className="space-y-2 text-sm text-[#002059]">
-                    {programa.highlights.map((highlight) => (
-                      <li key={highlight} className="flex gap-2">
-                        <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-[#14E259]" />
-                        <span>{highlight}</span>
-                      </li>
-                    ))}
-                  </ul>
-                            </CardContent>
-                        </Card>
-                    ))}
-                </div>
-            </div>
-        </section>
-
-      <section className="bg-background py-20">
-        <div className="container mx-auto max-w-6xl px-4">
-          <div className="mx-auto mb-16 max-w-3xl text-center space-y-4">
-            <h2 className="font-heading text-3xl font-bold md:text-4xl text-[#002059]">
-              Eventos e Workshops
-            </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-[#129DE4] to-[#14E259] mx-auto mb-6"></div>
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              Agenda dinâmica com oportunidades de partilha de conhecimento,
-              desenvolvimento de competências e integração com parceiros.
-            </p>
-                </div>
-          <div className="grid gap-6 lg:grid-cols-3">
-            {eventosWorkshops.map((evento) => (
-              <Card
-                key={evento.id}
-                className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group"
-              >
-                <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
-                <CardContent className="space-y-4 p-6">
-                  <div className="flex items-start gap-3">
-                    <Compass className="h-6 w-6 text-[#129DE4]" />
-                    <h3 className="font-heading text-xl font-semibold text-[#14E259]">
-                      {evento.title}
-                    </h3>
-            </div>
-                  <p className="text-[#002059]">{evento.description}</p>
-                  <div className="space-y-2 text-sm text-[#002059]/70">
-                    <span className="flex items-center gap-2">
-                      <Calendar className="h-4 w-4 text-[#129DE4]" />
-                      {evento.date}
-                    </span>
-                    <span className="flex items-center gap-2">
-                      <MapPin className="h-4 w-4 text-[#129DE4]" />
-                      {evento.location}
-                    </span>
-                    <span className="flex items-center gap-2">
-                      <Users className="h-4 w-4 text-[#129DE4]" />
-                      {evento.audience}
-                    </span>
-                </div>
-                    </CardContent>
-                </Card>
-            ))}
-            </div>
-          <div className="mt-12 flex justify-center">
-            <Button size="lg" asChild>
-              <Link href="/contactos?interesse=formacao">
-                Inscrever-se / Saber Mais
-              </Link>
-            </Button>
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-6 mb-8">
+              <div>
+                <div className="font-display text-4xl font-bold text-primary mb-1">200+</div>
+                <div className="text-sm text-muted-foreground">Alunos formados</div>
               </div>
+              <div>
+                <div className="font-display text-4xl font-bold text-primary mb-1">15</div>
+                <div className="text-sm text-muted-foreground">Cursos ativos</div>
+              </div>
+              <div>
+                <div className="font-display text-4xl font-bold text-primary mb-1">95%</div>
+                <div className="text-sm text-muted-foreground">Taxa de emprego</div>
+              </div>
+            </div>
+
+            <Button size="lg" variant="hero">
+              Explorar Programas
+            </Button>
+          </motion.div>
+
+          {/* Right - Programs Grid */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="grid sm:grid-cols-2 gap-4"
+          >
+            {programs.map((program, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                className={`glass-card p-6 card-hover group ${
+                  program.highlight ? 'ring-1 ring-primary/30' : ''
+                }`}
+              >
+                {program.highlight && (
+                  <div className="inline-flex items-center gap-1 px-2 py-1 mb-4 rounded-full bg-primary/20 text-primary text-xs font-medium">
+                    <Sparkles className="w-3 h-3" />
+                    Destaque
+                  </div>
+                )}
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                  <program.icon className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="font-display text-lg font-semibold mb-2">{program.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4">{program.description}</p>
+                <button className="text-primary text-sm font-medium link-underline">
+                  {program.cta}
+                </button>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
-        </section>
+      </div>
+    </section>
     </div>
   );
 }

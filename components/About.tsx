@@ -62,16 +62,16 @@ export default function About(){
         </motion.div>
         </div>
         {/* Pillars Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-24 container-custom">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-24  container-custom">
           {pillars.map((pillar, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               animate={ { opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="glass-card p-8 card-hover border-2 hover-lift hover:border-[#14E259] transition-all duration-300 hover:-translate-y-1 overflow-hidden group"
+              className="glass-card p-8 card-hover bg-primary/5 border-2 hover:shadow-2xl  hover:border-[#14E259]/50 transition-all duration-300 hover:-translate-y-1 overflow-hidden group"
             >
-              <div className="w-14 h-14 rounded-xl text-[#14E259]  shadow-soft hover-lift flex items-center justify-center border-2  mb-6 hover:border-[#14E259] transition-all duration-300 hover:-translate-y-1 overflow-hidden group">
+              <div className="w-14 h-14 rounded-xl text-[#14E259] bg-[#14E259]/25 shadow-soft hover-lift flex items-center justify-center border-2  mb-6 group-hover:bg-[#14E259]/50 transition-all duration-300 hover:-translate-y-1 overflow-hidden group">
                 <pillar.icon className="w-7 h-7 text-[#14E259]" />
               </div>
               <h3 className="font-display text-xl font-semibold mb-3">{pillar.title}</h3>
@@ -80,13 +80,7 @@ export default function About(){
           ))}
         </div>
 
-      <div className="container-custom">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          
-          
-         
-        </div>
-      </div>
+      
     </section>
     )
 }
