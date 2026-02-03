@@ -284,4 +284,6 @@
     @apply bg-clip-text text-transparent;
     background-image: var(--gradient-gold);
   }
+  
+
 }

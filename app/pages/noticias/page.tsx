@@ -42,7 +42,7 @@ const noticias = [
 
 const eventos = [
   {
-    id: "forum-biodiversidade-2025",
+    id: "forum-biodiversidade",
     title: "Fórum Regional de Biodiversidade e Conservação",
     date: "18–20 Abril 2025",
     location: "ISCED-Huíla, Lubango",
@@ -52,7 +52,7 @@ const eventos = [
     link: "/eventos/forum-biodiversidade",
   },
   {
-    id: "workshop-sig-2025",
+    id: "workshop-sig",
     title: "Workshop SIG aplicado à Conservação",
     date: "11 Maio 2025",
     location: "Laboratório de Cartografia CEBEA",
@@ -62,7 +62,7 @@ const eventos = [
     link: "/eventos/workshop-sig",
   },
   {
-    id: "mesa-redonda-clima-2025",
+    id: "mesa-redonda-clima",
     title: "Mesa Redonda: Resiliência Climática em Angola",
     date: "30 Junho 2025",
     location: "Centro Cultural do Lubango",
@@ -148,7 +148,7 @@ export default function NoticiasEventosPage() {
                 </CardContent>
                 <CardFooter className="border-t border-[#129DE4]/10 bg-muted/30 px-6 py-4">
                   <Link
-                    href={noticia.link}
+                    href={`/pages/noticias/${noticia.id}`}
                     className="flex items-center gap-2 text-sm font-semibold text-[#129DE4] transition-colors hover:text-[#0d8bc7]"
                   >
                     Ler mais
@@ -212,7 +212,7 @@ export default function NoticiasEventosPage() {
                 </CardContent>
                 <CardFooter className="border-t border-[#129DE4]/10 bg-background px-6 py-4">
                   <Link
-                    href={evento.link}
+                    href={`/pages/eventos/${evento.id}`}
                     className="flex items-center gap-2 text-sm font-semibold text-[#129DE4] transition-colors hover:text-[#0d8bc7]"
                   >
                     Detalhes e inscrição

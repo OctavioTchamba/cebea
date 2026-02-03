@@ -15,9 +15,9 @@ export const areasDeAtuacao: AreaAtuacao[] = [
     slug: "zoologia",
     title: "Zoologia",
     summary:
-      "Investigação sobre a fauna angolana, conservação de espécies ameaçadas e gestão de coleções zoológicas.",
+      "Investigação científica sobre a fauna angolana, conservação de espécies ameaçadas e gestão de coleções zoológicas.",
     description:
-      "A equipa de Zoologia do CEBEA desenvolve estudos taxonómicos, ecológicos e de conservação da fauna angolana, com foco especial no sudoeste do país. As coleções zoológicas, resultado de décadas de trabalho de campo, são fundamentais para apoiar investigação, ensino e políticas públicas.",
+      "A equipa de Zoologia do CEBEA desenvolve investigação científica em estudos taxonómicos, ecológicos e de conservação da fauna angolana, com foco especial em ecossistemas locais e regionais do sudoeste do país. As coleções zoológicas, resultado de décadas de trabalho de campo, são fundamentais para apoiar investigação, ensino e políticas públicas de conservação.",
     image: "/imagem4.jpg",
     icon: "PawPrint",
     highlights: [
@@ -48,11 +48,11 @@ export const areasDeAtuacao: AreaAtuacao[] = [
   },
   {
     slug: "herbario-base-dados",
-    title: "Herbário e Base de Dados",
+    title: "Herbário e Base de dados",
     summary:
       "Curadoria do Herbário LUBA e desenvolvimento de bases de dados florísticas e ecológicas de Angola.",
     description:
-      "O Herbário LUBA é uma referência para a flora do sudoeste de Angola. Com tecnologias de digitalização e gestão de dados, a equipa documenta e disponibiliza informação crítica para investigação, conservação e ensino.",
+      "O Herbário LUBA é uma referência para a flora do sudoeste de Angola e ecossistemas regionais. A equipa desenvolve investigação científica em botânica, curadoria de coleções e gestão de bases de dados florísticas e ecológicas. Com tecnologias de digitalização e gestão de dados, documenta e disponibiliza informação crítica para investigação, conservação e uso sustentável da biodiversidade em Angola.",
     image: "/imagem2.jpg",
     icon: "Flower",
     highlights: [
@@ -83,11 +83,11 @@ export const areasDeAtuacao: AreaAtuacao[] = [
   },
   {
     slug: "cartografia-analise-espacial",
-    title: "Cartografia e Análise Espacial",
+    title: "Cartografia e Análise Espacial com Detenção Remota",
     summary:
       "Aplicação de SIG, deteção remota e modelação espacial para apoiar a conservação e o ordenamento do território.",
     description:
-      "A área de Cartografia e Análise Espacial desenvolve soluções baseadas em geotecnologias para monitorizar ecossistemas, analisar pressões ambientais e apoiar decisões estratégicas em Angola.",
+      "A área de Cartografia e Análise Espacial com Detenção Remota desenvolve soluções baseadas em geotecnologias para monitorizar ecossistemas, analisar pressões ambientais e apoiar decisões estratégicas em Angola. Utiliza técnicas avançadas de sensoriamento remoto para mapeamento e análise de ecossistemas locais e regionais.",
     image: "/imagem5.jpg",
     icon: "Map",
     highlights: [
@@ -118,11 +118,11 @@ export const areasDeAtuacao: AreaAtuacao[] = [
   },
   {
     slug: "conservacao-carbono-florestas",
-    title: "Conservação, Carbono e Florestas",
+    title: "Conservação, carbono e florestas",
     summary:
       "Proteção de ecossistemas florestais, contabilização de carbono e restauração de paisagens.",
     description:
-      "A equipa trabalha com comunidades e decisores para proteger florestas nativas, implementar projetos de carbono e restaurar áreas degradadas, conciliando conservação e desenvolvimento socioeconómico.",
+      "A equipa desenvolve investigação científica e ações práticas para proteger florestas nativas, implementar projetos de carbono e restaurar áreas degradadas em Angola. Trabalha com comunidades e decisores para conciliar conservação e uso sustentável da biodiversidade com desenvolvimento socioeconómico, com foco especial em ecossistemas locais e regionais.",
     image: "/imagem7.jpg",
     icon: "TreePine",
     highlights: [
@@ -153,11 +153,11 @@ export const areasDeAtuacao: AreaAtuacao[] = [
   },
   {
     slug: "educacao-desenvolvimento-sustentavel",
-    title: "Educação Ambiental e Desenvolvimento Sustentável",
+    title: "Formação, Educação Ambiental e Desenvolvimento sustentável",
     summary:
       "Capacitação de educadores, comunidades e instituições para promover sustentabilidade e cidadania ambiental.",
     description:
-      "Programas abrangentes de educação ambiental, formação de lideranças e sensibilização comunitária para fomentar uma cultura de sustentabilidade e participação cidadã.",
+      "Programas abrangentes de formação, educação ambiental, desenvolvimento de competências e sensibilização comunitária para fomentar uma cultura de sustentabilidade e participação cidadã. A área promove a formação de profissionais qualificados em biodiversidade e educação ambiental, contribuindo para o desenvolvimento sustentável em Angola.",
     image: "/imagem3.jpg",
     icon: "GraduationCap",
     highlights: [

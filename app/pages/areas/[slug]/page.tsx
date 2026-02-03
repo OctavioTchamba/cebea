@@ -23,13 +23,14 @@ const iconMap = {
 } as const;
 
 type AreaPageProps = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
-export default function AreaDetalhePage({ params }: AreaPageProps) {
-  const area = areasDeAtuacao.find((item) => item.slug === params.slug);
+export default async function AreaDetalhePage({ params }: AreaPageProps) {
+  const { slug } = await params;
+  const area = areasDeAtuacao.find((item) => item.slug === slug);
 
   if (!area) {
     notFound();
@@ -46,14 +47,14 @@ export default function AreaDetalhePage({ params }: AreaPageProps) {
       >
         <div className="absolute inset-0 bg-black/55" />
         <div className="container relative z-10 mx-auto max-w-5xl space-y-6 text-white">
-          <div className="flex justify-between gap-4">
-            <Button asChild variant="secondary" className="bg-white/10 text-white hover:bg-white/20">
+          <div className="flex justify-between gap-4 mt-6">
+            <Button asChild variant="secondary" className=" bg-[#14E259]/50 text-white hover:bg-white/20">
               <Link href="/pages/areas" className="flex items-center gap-2 text-sm font-semibold">
                 <ArrowLeft className="h-4 w-4" />
                 Todas as áreas
               </Link>
             </Button>
-            <span className="hidden items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-sm font-medium md:flex">
+            <span className="hidden items-center gap-2 rounded-full bg-[#14E259]/50 px-4 py-2 text-sm font-medium md:flex">
               <Icon className="h-4 w-4" />
               {area.title}
             </span>
@@ -69,7 +70,7 @@ export default function AreaDetalhePage({ params }: AreaPageProps) {
             {area.highlights.slice(0, 2).map((highlight) => (
               <span
                 key={highlight}
-                className="rounded-full bg-white/15 px-4 py-2 text-sm font-medium"
+                className="rounded-full bg-[#14E259]/50 px-4 py-2 text-sm font-medium"
               >
                 {highlight}
               </span>

@@ -1,57 +1,11 @@
+"use client"
+
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { ChevronRight, Dna, TreeDeciduous, Droplets, Mountain, Bird, Bug } from "lucide-react";
-
-const researchLines = [
-  {
-    id: 1,
-    icon: Dna,
-    title: "Genómica & Evolução",
-    description: "Análise genética de populações e mecanismos evolutivos em ecossistemas tropicais e temperados.",
-    projects: 12,
-    status: "active",
-  },
-  {
-    id: 2,
-    icon: TreeDeciduous,
-    title: "Ecologia Florestal",
-    description: "Dinâmica de florestas, serviços ecossistémicos e adaptação às alterações climáticas.",
-    projects: 8,
-    status: "active",
-  },
-  {
-    id: 3,
-    icon: Droplets,
-    title: "Ecossistemas Aquáticos",
-    description: "Biodiversidade marinha e dulçaquícola, conservação de habitats críticos.",
-    projects: 15,
-    status: "active",
-  },
-  {
-    id: 4,
-    icon: Mountain,
-    title: "Biogeografia",
-    description: "Padrões de distribuição de espécies e conectividade de paisagens.",
-    projects: 6,
-    status: "active",
-  },
-  {
-    id: 5,
-    icon: Bird,
-    title: "Ornitologia",
-    description: "Migração, comportamento e conservação de aves em ecossistemas ameaçados.",
-    projects: 9,
-    status: "active",
-  },
-  {
-    id: 6,
-    icon: Bug,
-    title: "Entomologia Aplicada",
-    description: "Polinizadores, controlo biológico e papel dos insetos nos ecossistemas.",
-    projects: 7,
-    status: "active",
-  },
-];
+import { ChevronRight, ExternalLink } from "lucide-react";
+import Link from "next/link";
+import { Button } from "./ui/button";
+import { researchLines } from "@/data/researchLines";
 
 const Research = () => {
   const sectionRef = useRef(null);
@@ -61,7 +15,7 @@ const Research = () => {
   return (
     <section ref={sectionRef} className="section-padding relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background via-card/50 to-background" />
+      <div className="absolute inset-0 bg-linear-to-b from-background via-card/50 to-background" />
       
       <div className="container-scientific relative z-10">
         {/* Section Header */}
@@ -79,8 +33,8 @@ const Research = () => {
             <span className="text-[#14E259] block">Excelência Científica</span>
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed">
-            Investigação multidisciplinar que abrange desde a escala molecular 
-            até aos ecossistemas globais.
+            O CEBEA rege-se pelos princípios da proteção do património biológico regional e nacional, 
+            da educação para o desenvolvimento sustentável e preservação do meio ambiente.
           </p>
         </motion.div>
 
@@ -96,10 +50,10 @@ const Research = () => {
               onMouseLeave={() => setHoveredId(null)}
               className="group relative"
             >
-              <div className="glass-card p-8 h-full flex flex-col card-hover cursor-pointer">
+              <div className="glass-card border border-slate-200  p-8 h-full flex flex-col hover:shadow-[#14E259]/45 hover-lift cursor-pointer">
                 {/* Icon */}
                 <div className="relative mb-6">
-                  <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center transition-all duration-500 group-hover:bg-primary/20 group-hover:scale-110">
+                  <div className="w-16 h-16 rounded-2xl bg-[#14E259]/40 flex items-center justify-center transition-all duration-500 group-hover:bg-primary/20 group-hover:scale-110">
                     <line.icon className="w-8 h-8 text-primary transition-transform duration-500 group-hover:scale-110" />
                   </div>
                   {/* Glow Effect */}
@@ -109,7 +63,7 @@ const Research = () => {
                       opacity: hoveredId === line.id ? 0.5 : 0,
                       scale: hoveredId === line.id ? 1.2 : 0.8 
                     }}
-                    className="absolute inset-0 bg-primary/20 rounded-2xl blur-xl"
+                    className="absolute inset-0 bg-[#14E259] rounded-2xl blur-xl"
                   />
                 </div>
 
@@ -117,7 +71,7 @@ const Research = () => {
                 <h3 className="font-display text-xl font-semibold mb-3 group-hover:text-primary transition-colors duration-300">
                   {line.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-grow">
+                <p className="text-muted-foreground text-sm leading-relaxed mb-6 grow">
                   {line.description}
                 </p>
 
@@ -136,9 +90,25 @@ const Research = () => {
                 </div>
               </div>
             </motion.article>
-          ))}
+          ))}  
+         
         </div>
-      </div>
+      
+      </div> 
+      
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={isInView ? { opacity: 1 } : {}}
+        transition={{ duration: 0.8, delay: 0.6 }}
+        className="text-center mt-12"
+      >
+        <Link href="/pages/pesquisas">
+           <Button variant="ghost" size="lg" className="text-muted-foreground hover:text-white border border-[#14E259]/30 hover:bg-[#14E259] hover:border-[#14E259] transition-all">
+            Ver Todas as Pesquisas
+            <ExternalLink className="w-4 h-4 ml-2" />
+          </Button>
+          </Link>
+      </motion.div>
     </section>
   );
 };

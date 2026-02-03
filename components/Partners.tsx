@@ -74,66 +74,73 @@ export default function Partners() {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-r from-gray-50 to-green-50">
-      <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Nossos Parceiros
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Trabalhamos em conjunto com instituições renomadas para promover a conservação e educação ambiental
-            </p>
-          </div>
+    <section className="section-padding relative overflow-hidden bg-gradient-to-b from-background via-card/30 to-background">
+      {/* Background Elements */}
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#14E259]/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#129DE4]/10 rounded-full blur-3xl" />
+      
+      <div className="container-scientific relative z-10">
+        <div className="text-center mb-16 max-w-3xl mx-auto">
+          <span className="text-[#14E259] text-sm font-medium uppercase tracking-widest mb-4 block">
+            Parcerias Estratégicas
+          </span>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            Trabalhamos com
+            <span className="text-[#14E259] block">instituições de excelência</span>
+          </h2>
+          <p className="text-muted-foreground text-lg leading-relaxed">
+            Colaborações nacionais e internacionais que amplificam o impacto da nossa investigação e conservação
+          </p>
+        </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {partners.map((partner) => (
-              <div 
-                key={partner.id}
-                className="bg-white border border-gray-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="text-center mb-4">
-                  <div className="h-20 w-20 bg-gradient-to-br from-green-400 to-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <span className="text-white font-bold text-xl">
-                      {partner.name.charAt(0)}
-                    </span>
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">
-                    {partner.name}
-                  </h3>
-                  <span className={`px-3 py-1 rounded-full text-xs font-semibold ${getTypeColor(partner.type)}`}>
-                    {partner.type}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          {partners.map((partner) => (
+            <div 
+              key={partner.id}
+              className="glass-card p-6 card-hover group relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+            >
+              <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
+              <div className="text-center mb-4">
+                <div className="h-16 w-16 bg-gradient-to-br from-[#14E259] to-[#129DE4] rounded-xl mx-auto mb-4 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <span className="text-white font-bold text-xl">
+                    {partner.name.charAt(0)}
                   </span>
                 </div>
-                
-                <p className="text-gray-600 text-sm text-center mb-4">
-                  {partner.description}
-                </p>
-                
-                <div className="text-center">
-                  <Link 
-                    href={partner.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-green-600 hover:text-green-700 text-sm font-medium"
-                  >
-                    Visitar Site
-                    <ExternalLink className="ml-1 w-3 h-3" />
-                  </Link>
-                </div>
+                <h3 className="font-display text-lg font-semibold mb-2 group-hover:text-[#14E259] transition-colors">
+                  {partner.name}
+                </h3>
+                <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-[#14E259]/10 text-[#14E259] border border-[#14E259]/20">
+                  {partner.type}
+                </span>
               </div>
-            ))}
-          </div>
+              
+              <p className="text-muted-foreground text-sm text-center mb-4">
+                {partner.description}
+              </p>
+              
+              <div className="text-center">
+                <Link 
+                  href={partner.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center text-[#14E259] hover:text-[#12c94e] text-sm font-medium transition-colors"
+                >
+                  Visitar Site
+                  <ExternalLink className="ml-1 w-3 h-3" />
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
 
-          <div className="text-center mt-12">
-            <Button 
-              size="lg"
-              className="bg-green-600 hover:bg-green-700 text-white px-8 py-3"
-            >
-              Seja Nosso Parceiro
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-          </div>
+        <div className="text-center">
+          <Button 
+            size="lg"
+            className="bg-[#14E259] hover:bg-[#12c94e] text-white px-8 py-6 text-lg"
+          >
+            Seja Nosso Parceiro
+            <ArrowRight className="ml-2 w-5 h-5" />
+          </Button>
         </div>
       </div>
     </section>

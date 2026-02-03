@@ -86,8 +86,8 @@ export default function EducacaoPage() {
 
         <section ref={sectionRef} className="section-padding relative overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-earth/5 to-background" />
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute inset-0 bg-linear-to-br from-background via-card/30 to-background" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#14E259]/20 rounded-full blur-3xl" />
       
       <div className="container-scientific relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -97,12 +97,12 @@ export default function EducacaoPage() {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-primary text-sm font-medium uppercase tracking-widest mb-4 block">
+            <span className="text-[#14E259] text-sm font-medium uppercase tracking-widest mb-4 block">
               Educação & Formação
             </span>
             <h2 className="font-display text-4xl md:text-5xl font-bold mb-6 leading-tight">
               Formamos os
-              <span className="text-gradient block">cientistas do futuro</span>
+              <span className="text-[#14E259] block">cientistas do futuro</span>
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-8">
               O nosso compromisso com a educação vai além da sala de aula. 
@@ -113,20 +113,20 @@ export default function EducacaoPage() {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-6 mb-8">
               <div>
-                <div className="font-display text-4xl font-bold text-primary mb-1">200+</div>
+                <div className="font-display text-4xl font-bold text-[#14E259] mb-1">200+</div>
                 <div className="text-sm text-muted-foreground">Alunos formados</div>
               </div>
               <div>
-                <div className="font-display text-4xl font-bold text-primary mb-1">15</div>
+                <div className="font-display text-4xl font-bold text-[#14E259] mb-1">15</div>
                 <div className="text-sm text-muted-foreground">Cursos ativos</div>
               </div>
               <div>
-                <div className="font-display text-4xl font-bold text-primary mb-1">95%</div>
+                <div className="font-display text-4xl font-bold text-[#14E259] mb-1">95%</div>
                 <div className="text-sm text-muted-foreground">Taxa de emprego</div>
               </div>
             </div>
 
-            <Button size="lg" variant="hero">
+            <Button size="lg" className="bg-[#14E259] hover:bg-[#12c94e] text-white">
               Explorar Programas
             </Button>
           </motion.div>
@@ -144,22 +144,22 @@ export default function EducacaoPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                className={`glass-card p-6 card-hover group ${
-                  program.highlight ? 'ring-1 ring-primary/30' : ''
+                className={`glass-card p-6 card-hover group border-2 border-gray-200 hover:border-[#14E259]/30 transition-all ${
+                  program.highlight ? 'ring-1 ring-[#14E259]/30' : ''
                 }`}
               >
                 {program.highlight && (
-                  <div className="inline-flex items-center gap-1 px-2 py-1 mb-4 rounded-full bg-primary/20 text-primary text-xs font-medium">
+                  <div className="inline-flex items-center gap-1 px-2 py-1 mb-4 rounded-full bg-[#14E259]/20 text-[#14E259] text-xs font-medium">
                     <Sparkles className="w-3 h-3" />
                     Destaque
                   </div>
                 )}
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                  <program.icon className="w-6 h-6 text-primary" />
+                <div className="w-12 h-12 rounded-xl bg-[#14E259]/10 flex items-center justify-center mb-4 group-hover:bg-[#14E259]/20 transition-colors">
+                  <program.icon className="w-6 h-6 text-[#14E259]" />
                 </div>
                 <h3 className="font-display text-lg font-semibold mb-2">{program.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-4">{program.description}</p>
-                <button className="text-primary text-sm font-medium link-underline">
+                <button className="text-[#14E259] text-sm font-medium link-underline hover:text-[#12c94e] transition-colors">
                   {program.cta}
                 </button>
               </motion.div>

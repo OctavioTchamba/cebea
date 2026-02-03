@@ -3,71 +3,11 @@ import { useRef, useState } from "react";
 import { ExternalLink, Calendar, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { projects } from "@/data/projects";
+
 
 const projectCategories = ["Todos", "Em Curso", "Concluídos", "Internacionais"];
-
-const projects = [
-  {
-    id: 1,
-    title: "BioAtlas Ibérico",
-    description: "Mapeamento genético e ecológico da biodiversidade na Península Ibérica com técnicas de DNA ambiental.",
-    category: "Em Curso",
-    year: "2023-2026",
-    partners: ["Univ. Lisboa", "CSIC Madrid", "FCT"],
-    image: "https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=800&q=80",
-    featured: true,
-  },
-  {
-    id: 2,
-    title: "Rede AMAZONIA",
-    description: "Monitorização de hotspots de biodiversidade na Amazónia através de sensores remotos e IA.",
-    category: "Em Curso",
-    year: "2022-2025",
-    partners: ["INPA", "NASA", "ESA"],
-    image: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&q=80",
-    featured: true,
-  },
-  {
-    id: 3,
-    title: "Corais do Atlântico",
-    description: "Resiliência de recifes de coral face às alterações climáticas no Atlântico tropical.",
-    category: "Em Curso",
-    year: "2024-2027",
-    partners: ["NOAA", "Univ. Açores"],
-    image: "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?w=800&q=80",
-    featured: false,
-  },
-  {
-    id: 4,
-    title: "Genoma Floresta Laurissilva",
-    description: "Sequenciação completa do genoma das espécies endémicas da floresta Laurissilva da Madeira.",
-    category: "Concluídos",
-    year: "2020-2023",
-    partners: ["Univ. Madeira", "EBI"],
-    image: "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?w=800&q=80",
-    featured: false,
-  },
-  {
-    id: 5,
-    title: "Migrações Transatlânticas",
-    description: "Estudo de rotas migratórias de aves entre Europa e África com tecnologia GPS.",
-    category: "Internacionais",
-    year: "2021-2024",
-    partners: ["BirdLife", "Max Planck"],
-    image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&q=80",
-    featured: false,
-  },
-  {
-    id: 6,
-    title: "Insetos Polinizadores",
-    description: "Impacto das práticas agrícolas na diversidade de polinizadores em Portugal.",
-    category: "Concluídos",
-    year: "2019-2022",
-    partners: ["INIAV", "EU Horizon"],
-    image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800&q=80",
-    featured: false,
-  },
-];
 
 const Projects = () => {
   const sectionRef = useRef(null);
@@ -107,8 +47,8 @@ const Projects = () => {
                 className={cn(
                   "px-4 py-2 rounded-full text-sm font-medium transition-all duration-300",
                   activeCategory === category
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-muted text-muted-foreground hover:bg-muted/80 hover:text-foreground"
+                    ? "bg-[#14E259] text-white shadow-lg shadow-[#14E259]/30"
+                    : "bg-muted text-muted-foreground hover:bg-[#14E259]/10 hover:text-[#14E259] hover:border border-[#14E259]/30"
                 )}
               >
                 {category}
@@ -138,20 +78,20 @@ const Projects = () => {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-background via-background/50 to-transparent" />
               </div>
 
               {/* Content */}
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 {/* Category Badge */}
-                <div className="inline-flex items-center gap-2 px-3 py-1 mb-4 rounded-full bg-primary/20 backdrop-blur-sm border border-primary/30">
-                  <span className="text-xs font-medium text-primary">{project.category}</span>
+                <div className="inline-flex items-center gap-2 px-3 py-1 mb-4 rounded-full bg-[#14E259]/20 backdrop-blur-sm border border-[#14E259]/30">
+                  <span className="text-xs font-medium text-[#14E259]">{project.category}</span>
                 </div>
 
-                <h3 className="font-display text-xl font-semibold mb-2 group-hover:text-primary transition-colors duration-300">
+                <h3 className="font-display text-xl font-semibold mb-2 group-hover:text-[#14E259] transition-colors duration-300">
                   {project.title}
                 </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-2">
+                <p className="text-foreground text-sm leading-relaxed mb-4 line-clamp-2">
                   {project.description}
                 </p>
 
@@ -168,10 +108,13 @@ const Projects = () => {
                 </div>
 
                 {/* CTA */}
-                <Button variant="outline" size="sm" className="group/btn">
+                <Link href={`/pages/projetos/${project.slug}`}>
+                <Button variant="outline" size="sm" className="group/btn border-[#14E259]/30 hover:bg-[#14E259] hover:text-white hover:border-[#14E259] transition-all">
                   Explorar Projeto
                   <ExternalLink className="w-3 h-3 ml-2 transition-transform group-hover/btn:translate-x-1" />
                 </Button>
+                </Link>
+                
               </div>
             </motion.article>
           ))}
@@ -184,10 +127,13 @@ const Projects = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-center mt-12"
         >
-          <Button variant="ghost" size="lg" className="text-muted-foreground hover:text-foreground">
+          <Link href="/pages/projetos">
+           <Button variant="ghost" size="lg" className="text-muted-foreground hover:text-white border border-[#14E259]/30 hover:bg-[#14E259] hover:border-[#14E259] transition-all">
             Ver Todos os Projetos
             <ExternalLink className="w-4 h-4 ml-2" />
           </Button>
+          </Link>
+         
         </motion.div>
       </div>
     </section>

@@ -31,9 +31,8 @@ export default function Areas() {
             Áreas de Atuação
           </h1>
           <p className="text-lg leading-relaxed text-white/85 md:text-xl">
-            Conheça as frentes prioritárias de trabalho do CEBEA. Cada área
-            reúne equipas multidisciplinares, projetos de investigação e ações
-            educativas que fortalecem a conservação da biodiversidade em Angola.
+          A área de atuação do CEBEA é ampla e voltada para a investigação científica, conservação e uso sustentável 
+          da biodiversidade em Angola, com foco em ecossistemas locais e regionais.
           </p>
         </div>
       </section>

@@ -18,6 +18,7 @@ import useEmblaCarousel from "embla-carousel-react";
  import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import CTA from "@/components/CTA";
 
 
 export default function HomePage(){
@@ -224,6 +225,7 @@ export default function HomePage(){
       <Team />
       
       {/* Parceiros<Partners /> */}
+      <CTA/>
       
 
     </div>

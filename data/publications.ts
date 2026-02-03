@@ -1,0 +1,80 @@
+export interface Publication {
+    id: string;
+    title: string;
+    type: string;
+    year: number;
+    theme: string;
+    authors: string;
+    summary: string;
+    downloadUrl: string;
+}
+
+export const publications: Publication[] = [
+    {
+        id: "artigo-miombo-2025",
+        title: "Dinâmica de Florestas Miombo na Região Sul de Angola",
+        type: "Artigo científico",
+        year: 2025,
+        theme: "Ecologia e Florestas",
+        authors: "Silva, M.; Chivela, J.; Morais, L.",
+        summary:
+            "Análise longitudinal de biomassa e diversidade em florestas Miombo, com implicações para políticas de conservação.",
+        downloadUrl: "/docs/dinamica-miombo-2025.pdf",
+    },
+    {
+        id: "relatorio-carbono-2024",
+        title: "Relatório Técnico de Monitorização de Carbono em Chipindo",
+        type: "Relatório técnico",
+        year: 2024,
+        theme: "Carbono e Clima",
+        authors: "Equipa CEBEA",
+        summary:
+            "Resultados do programa de restauração e contabilização de carbono com metodologias participativas.",
+        downloadUrl: "/docs/monitorizacao-carbono-2024.pdf",
+    },
+    {
+        id: "guia-botanic-2023",
+        title: "Guia Prático para Inventários Florísticos Comunitários",
+        type: "Guia técnico",
+        year: 2023,
+        theme: "Botânica e Herbário",
+        authors: "Mussungo, L.; Pereira, R.",
+        summary:
+            "Metodologias passo-a-passo para equipas comunitárias conduzirem inventários florísticos com apoio do Herbário LUBA.",
+        downloadUrl: "/docs/guia-inventarios-floristicos.pdf",
+    },
+    {
+        id: "dissertacao-educacao-2024",
+        title:
+            "Educação Ambiental como Ferramenta de Conservação em Comunidades Rurais",
+        type: "Dissertação",
+        year: 2024,
+        theme: "Educação Ambiental",
+        authors: "Tchissola, A.",
+        summary:
+            "Estudo de caso em três municípios do sul de Angola avaliando impacto de programas educativos.",
+        downloadUrl: "/docs/dissertacao-educacao-ambiental.pdf",
+    },
+    {
+        id: "livro-biodiversidade-2022",
+        title: "Biodiversidade do Parque da Bicuar: Atlas Ilustrado",
+        type: "Livro",
+        year: 2022,
+        theme: "Biodiversidade",
+        authors: "CEBEA & Parceiros internacionais",
+        summary:
+            "Publicação ilustrada com inventários de fauna e flora, mapas temáticos e recomendações de gestão.",
+        downloadUrl: "/docs/atlas-bicuar.pdf",
+    },
+    {
+        id: "artigo-anfibios-2023",
+        title: "Diversidade de Anfíbios nas Paisagens Agro-florestais da Huíla",
+        type: "Artigo científico",
+        year: 2023,
+        theme: "Zoologia",
+        authors: "Ferreira, P.; Gonçalves, B.; et al.",
+        summary:
+            "Investigação sobre a resiliência de anfíbios frente a alterações de uso do solo em mosaicos agro-florestais.",
+        downloadUrl: "/docs/anfibios-huila.pdf",
+    },
+];
