@@ -12,25 +12,25 @@ export default function Stats() {
       icon: <BookOpen className="w-8 h-8 text-blue-600" />,
       number: "2.500+",
       label: "Estudantes Atendidos",
-      description: "Programas educacionais"
+      description: "Programas educacionais",
     },
     {
       icon: <Users className="w-8 h-8 text-purple-600" />,
       number: "50+",
       label: "Projetos Realizados",
-      description: "Pesquisas e conservação"
+      description: "Pesquisas e conservação",
     },
     {
       icon: <Award className="w-8 h-8 text-orange-600" />,
       number: "25+",
       label: "Publicações Científicas",
-      description: "Artigos e relatórios"
-    }
+      description: "Artigos e relatórios",
+    },
     {
       icon: <Award className="w-8 h-8 text-orange-600" />,
       number: "25+",
       label: "Investigadores",
-      description: "Artigos e relatórios"
+      description: "Artigos e relatórios",
     }
   ];
 
