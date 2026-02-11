@@ -53,10 +53,10 @@ export default function DashboardLayout({
   };
 
   return (
-    <div className="flex h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 overflow-hidden">
+    <div className="flex h-screen bg-linear-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 overflow-hidden">
       
       {/* Sidebar Desktop */}
-      <aside className={`${isSidebarOpen ? 'w-72' : 'w-20'} bg-gradient-to-b from-[#002059] to-[#003580] text-white transition-all duration-300 flex-col hidden lg:flex shadow-2xl relative z-10`}>
+      <aside className={`${isSidebarOpen ? 'w-72' : 'w-20'} bg-linear-to-b from-[#002059] to-[#003580] text-white transition-all duration-300 flex-col hidden lg:flex shadow-2xl relative z-10`}>
         
         {/* Logo Section */}
         <div className="h-20 flex items-center justify-between px-6 border-b border-white/10">
@@ -116,7 +116,7 @@ export default function DashboardLayout({
           <div className="p-4 border-t border-white/10">
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4">
               <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white font-bold text-sm">
+                <div className="h-10 w-10 rounded-full bg-linear-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white font-bold text-sm">
                   {user.name?.charAt(0).toUpperCase()}
                 </div>
                 <div className="flex-1 min-w-0">
@@ -140,7 +140,7 @@ export default function DashboardLayout({
       {/* Mobile Sidebar Overlay */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden" onClick={() => setIsMobileMenuOpen(false)}>
-          <aside className="w-72 h-full bg-gradient-to-b from-[#002059] to-[#003580] text-white shadow-2xl" onClick={(e) => e.stopPropagation()}>
+          <aside className="w-72 h-full bg-linear-to-b from-[#002059] to-[#003580] text-white shadow-2xl" onClick={(e) => e.stopPropagation()}>
             <div className="h-20 flex items-center justify-between px-6 border-b border-white/10">
               <div className="flex items-center gap-3">
                 <div className="bg-white/10 backdrop-blur-sm p-2 rounded-lg">
@@ -232,14 +232,14 @@ export default function DashboardLayout({
                 <p className="text-sm font-semibold text-gray-800 dark:text-white">{user.name}</p>
                 <p className="text-xs text-gray-500 dark:text-gray-400">{user.email}</p>
               </div>
-              <div className="h-10 w-10 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white font-bold shadow-md">
+              <div className="h-10 w-10 rounded-full bg-linear-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white font-bold shadow-md">
                 {user.name?.charAt(0).toUpperCase()}
               </div>
             </Link>
 
             {/* User Profile Mobile */}
             <Link href="/admin/dashboard/profile" className="sm:hidden">
-              <div className="h-9 w-9 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white font-bold text-sm shadow-md">
+              <div className="h-9 w-9 rounded-full bg-linear-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white font-bold text-sm shadow-md">
                 {user.name?.charAt(0).toUpperCase()}
               </div>
             </Link>
