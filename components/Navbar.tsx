@@ -1,6 +1,6 @@
 "use client"
 
-import { Ghost, Leaf, Menu, Moon, Sun } from "lucide-react";
+import { Menu, Moon, Sun } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";// Update path as necessary
@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils";
 export default function Navbar() {
     const { theme, setTheme } = useTheme();
     const [isOpen, setIsOpen] = useState(false);
-    const [selected, SetSelected] = useState(false)
+    const [selected, SetSelected] = useState<string>('')
     const [isScrolled, setIsScrolled] = useState(false);
 
 
@@ -75,15 +75,18 @@ export default function Navbar() {
              {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1">
             {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                onClick={() => SetSelected(item.name)}
-                className="relative px-3 py-2 text-sm font-medium text-foreground/80 hover:text-foreground rounded-md no-underline transition-all duration-300 hover:bg-accent/50 group"
-              >
-                <span className="relative z-10">{item.name}</span>
-                <span className="absolute bottom-0 left-1/2 h-0.5 w-0 bg-sky-600 transition-all duration-300 group-hover:left-0 group-hover:w-full -translate-x-1/2 group-hover:translate-x-0"></span>
-              </Link>
+           <Link
+  key={item.name}
+  href={item.href}
+  onClick={() => SetSelected(item.name)}
+  className={`relative px-3 py-2 text-sm font-medium rounded-md no-underline transition-all duration-300 group ${
+    selected === item.name
+      ? 'text-foreground bg-accent'
+      : 'text-foreground/80 hover:text-foreground hover:bg-accent/50'
+  }`}
+>
+  <span className="relative z-10">{item.name}</span>
+</Link>
             ))}
           </nav>
           {/**Actions */}
