@@ -60,15 +60,15 @@ export default function ProjetoDetalhes({ params }: { params: Promise<{ slug: st
             </p>
 
             <div className="flex flex-wrap gap-4 text-white/80">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 text-foreground">
                 <Calendar className="h-5 w-5" />
                 <span>{projeto.periodo}</span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 text-foreground">
                 <MapPin className="h-5 w-5" />
                 <span>{projeto.location}</span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 text-foreground">
                 <Users className="h-5 w-5" />
                 <span>{projeto.partners.length} Parceiros</span>
               </div>

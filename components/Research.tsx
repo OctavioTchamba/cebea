@@ -76,7 +76,7 @@ const Research = () => {
                 </p>
 
                 {/* Footer */}
-                <div className="flex items-center justify-between pt-4 border-t border-border/50">
+                {/** <div className="flex items-center justify-between pt-4 border-t border-border/50">
                   <span className="text-xs text-muted-foreground">
                     {line.projects} projetos ativos
                   </span>
@@ -87,7 +87,7 @@ const Research = () => {
                     Explorar
                     <ChevronRight className="w-4 h-4" />
                   </motion.div>
-                </div>
+                </div> */}
               </div>
             </motion.article>
           ))}  

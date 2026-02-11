@@ -9,11 +9,15 @@ interface User {
   id: string;
   name: string;
   email: string;
+  phone: string;
+  role: string;
+  createdAt: string;
 }
 
 interface AuthContextType {
   user: User | null;
-  login: (userData: User) => void;
+  // Alterado para aceitar email e senha e retornar os dados do usuário
+  login: (email: string, password: string) => Promise<User>; 
   logout: () => Promise<void>;
   isAuthenticated: boolean;
   isLoading: boolean;
@@ -27,7 +31,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const router = useRouter();
 
   useEffect(() => {
-    // Tenta recuperar o usuário do localStorage ao carregar
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
       setUser(JSON.parse(storedUser));
@@ -35,24 +38,38 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setIsLoading(false);
   }, []);
 
-  const login = (userData: User) => {
-    setUser(userData);
-    localStorage.setItem('user', JSON.stringify(userData));
-    router.push('/dashboard');
+  // Agora a função login realmente autentica no seu backend Node.js
+  const login = async (email: string, password: string): Promise<User> => {
+    try {
+      // Faz a chamada ao seu backend na porta 8000
+      const response = await api.post('/user/login', { email, password });
+      
+      const userData = response.data.user;
+
+      if (!userData) throw new Error("Dados do usuário não recebidos.");
+
+      setUser(userData);
+      localStorage.setItem('user', JSON.stringify(userData));
+      
+      return userData; // Retorna para o componente de login prosseguir
+    } catch (error: any) {
+      // Lança o erro para ser capturado pelo catch do formulário
+      throw error;
+    }
   };
 
   const logout = async () => {
     try {
-      await api.post('/logout');
+      await api.post('/user/logout');
       setUser(null);
       localStorage.removeItem('user');
       toast.success('Logout realizado');
-      router.push('/login');
+      router.push('/admin/login'); // Ajustado para sua rota admin
     } catch (error) {
       console.error("Erro logout", error);
       setUser(null);
       localStorage.removeItem('user');
-      router.push('/login');
+      router.push('/admin/login');
     }
   };
 

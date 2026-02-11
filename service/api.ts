@@ -1,3 +1,32 @@
+import axios from 'axios';
+
+const getBaseURL = () => {
+  // Se estivermos no servidor (SSR), usamos localhost ou variável de ambiente
+  if (typeof window === 'undefined') {
+    return process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api';
+  }
+
+  const hostname = window.location.hostname;
+  
+  // Se for produção (domínio real), usa a variável de ambiente
+  if (process.env.NODE_ENV === 'production') {
+    return process.env.NEXT_PUBLIC_API_URL;
+  }
+
+  // Se for desenvolvimento, detecta o IP dinamicamente para testes em telemóvel
+  return `http://${hostname}:8000/api`;
+};
+
+const api = axios.create({
+  baseURL: getBaseURL(),
+  withCredentials: true, // Essencial para cookies HttpOnly
+});
+
+export default api;
+
+
+
+/*
 // src/services/api.ts
 import axios from 'axios';
 
@@ -9,4 +38,4 @@ const api = axios.create({
   },
 });
 
-export default api;
+export default api;*/

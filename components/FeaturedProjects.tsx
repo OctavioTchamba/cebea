@@ -78,14 +78,14 @@ const Projects = () => {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-linear-to-t from-background via-background/50 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-[#14E259]/80 via-background/50 to-transparent" />
               </div>
 
               {/* Content */}
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 {/* Category Badge */}
-                <div className="inline-flex items-center gap-2 px-3 py-1 mb-4 rounded-full bg-[#14E259]/20 backdrop-blur-sm border border-[#14E259]/30">
-                  <span className="text-xs font-medium text-[#14E259]">{project.category}</span>
+                <div className="inline-flex items-center gap-2 px-3 py-1 mb-4 rounded-full bg-white backdrop-blur-sm border border-[#14E259]/30">
+                  <span className="text-xs font-medium text-black">{project.category}</span>
                 </div>
 
                 <h3 className="font-display text-xl font-semibold mb-2 group-hover:text-[#14E259] transition-colors duration-300">
