@@ -3,10 +3,10 @@ import axios from 'axios';
 const getBaseURL = () => {
   // Se estivermos no servidor (SSR), usamos localhost ou variável de ambiente
   if (typeof window === 'undefined') {
-    return process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api';
+    return process.env.NEXT_PUBLIC_API_URL || 'https://cebea-server-production.up.railway.app/api';
   }
 
-  const hostname = window.location.hostname;
+  const hostname = 'https://cebea-server-production.up.railway.app/api';
   
   // Se for produção (domínio real), usa a variável de ambiente
   if (process.env.NODE_ENV === 'production') {
@@ -14,7 +14,7 @@ const getBaseURL = () => {
   }
 
   // Se for desenvolvimento, detecta o IP dinamicamente para testes em telemóvel
-  return `http://${hostname}:8000/api`;
+  return `https://${hostname}`;
 };
 
 const api = axios.create({
