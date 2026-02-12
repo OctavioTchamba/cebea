@@ -22,7 +22,7 @@ export default function Sobre() {
     <div className="min-h-screen">
       <section
         className="pt-32 pb-20 px-4 bg-muted bg-cover bg-cover-fit bg-center relative"
-        style={{ backgroundImage: `url(/imagem2.jpg)` }}
+        style={{ backgroundImage: `url(/Imagem2.jpg)` }}
       >
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="container mx-auto max-w-6xl text-center relative z-10">

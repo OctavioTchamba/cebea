@@ -7,7 +7,7 @@ export default function EquipaPage() {
       {/* Hero Section */}
       <section
         className="relative bg-cover bg-center bg-cover-fit px-4 pb-20 pt-32 md:pt-16"
-        style={{ backgroundImage: `url(/imagem3.jpg)` }}
+        style={{ backgroundImage: `url(/Imagem3.jpg)` }}
       >
         <div className="absolute inset-0 bg-black/50"></div>
         <div className="container relative z-10 mx-auto max-w-6xl text-center">
