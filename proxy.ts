@@ -5,7 +5,7 @@ export function proxy(request: NextRequest) {
   // Recupera o cookie de acesso (o nome deve ser igual ao que o Node.js envia)
   const token = request.cookies.get('accessToken')?.value;
   const isAuthPage = request.nextUrl.pathname.startsWith('/admin/login');
-  const isRegisterPage = request.nextUrl.pathname.startsWith("/admin")
+  const isRegisterPage = request.nextUrl.pathname.startsWith("/admin/register")
   const isDashboardPage = request.nextUrl.pathname.startsWith('/admin/dashboard');
 
   // 1. Se tentar entrar no dashboard sem token -> Redireciona para Login
