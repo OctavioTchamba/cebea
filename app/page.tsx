@@ -50,7 +50,7 @@ export default function HomePage(){
         </div>  
       {/**Hero Section */}
        {/* Hero Section com Carousel */}
-       <section className="relative min-h-screen flex items-center justify-center overflow-hidden ">
+       <section className="relative min-h-screen flex items-center justify-center overflow-hidden py-20 md:py-0 ">
         
         {/* Carousel de Imagens */}
         <div className="absolute inset-0 overflow-hidden" ref={emblaRef}>
@@ -143,13 +143,13 @@ export default function HomePage(){
         </div>
 
         {/* Conteúdo sobre o carousel */}
-        <div className="relative z-20 container mx-auto px-4 text-center text-white">
+        <div className="relative z-20 container mx-auto px-4 text-center text-white max-w-4xl">
           {/**Badge */}
           <motion.div
            initial={{ opacity: 0, y: 20 }}
            animate={{ opacity: 1, y: 0 }}
            transition={{ duration: 0.6 }}
-           className="inline-flex items-center -ml-90 gap-2 px-4 py-2 mb-8 rounded-full border border-white/60 bg-primary/5 backdrop-blur-sm"
+           className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full border border-white/60 bg-primary/5 backdrop-blur-sm max-w-full mx-auto"
          >
           <Microscope className="w-4 h-4 text-white" />
           <span className="text-sm font-medium text-white">Centro de  Estudos da Biodiversidade & Educação Ambiental</span>
@@ -160,9 +160,9 @@ export default function HomePage(){
           initial={{opacity: 0, y:30}}
           animate={{opacity: 1, y: 0}}
           transition={{ duration: 0.8, delay: 0.1}}
-          className="title-editorial -ml-90"
+          className="title-editorial max-w-full mx-auto"
           >
-            <span className="block font-heading text-5xl md:text-7xl font-bold mb-6 animate-fade-in">Conhecer para</span>
+            <span className="block font-heading text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in">Conhecer para</span>
             <span className="block  mt-2 text-[#14E259]">Conservar</span>
             <span className="block text-foreground/60"></span>
 
@@ -172,14 +172,14 @@ export default function HomePage(){
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="subtitle-scientific text-white mb-12 ml-50"
+            className="subtitle-scientific text-white mb-12 text-lg md:text-xl lg:text-2xl max-w-full mx-auto"
           >
             Investigação de excelência em biodiversidade e ecossistemas. 
             Unimos ciência, inovação e educação para compreender e proteger 
             a vida no planeta.
           </motion.p>
           
-          <div className="flex flex-col -ml-90 sm:flex-row gap-4 justify-center animate-fade-in">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
             <Button 
               size="lg" 
               className="bg-[#14E259] hover:bg-[#12c94e] text-white text-lg px-8 py-6"
