@@ -57,7 +57,7 @@ export default function Contatos() {
   return (
     <div className="min-h-screen bg-background">
       <section
-        className="relative bg-cover bg-center bg-cover-fit px-4 pb-28 pt-32 md:pt-20"
+        className="relative bg-cover bg-center bg-cover-fit px-4 pb-28 mt-20 pt-32 md:pt-20"
         style={{ backgroundImage: `url(/Imagem7.jpg)` }}
       >
         <div className="absolute inset-0 bg-black/60" />

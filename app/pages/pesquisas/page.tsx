@@ -18,7 +18,7 @@ export default function PesquisasPage() {
         </div>
       </section>*/}
       <section
-        className="pt-32 pb-20 md:pt-16 px-4 bg-muted bg-cover bg-cover-fit bg-center relative"
+        className="pt-32 pb-20 mt-20 md:pt-16 px-4 bg-muted bg-cover bg-cover-fit bg-center relative"
         style={{ backgroundImage: `url(/imagem5.jpg)` }}
       >
         <div className="absolute inset-0 bg-linear-to-b from black/60 via-black/40 to-black/60"></div>

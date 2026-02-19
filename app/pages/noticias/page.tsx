@@ -87,7 +87,7 @@ export default function NoticiasEventosPage() {
               id: String(item.id),
               title: item.title || "",
               date: formatDate(date),
-              category: item.category || "Not?cia",
+              category: item.category || "Notícia",
               summary: item.summary || item.content?.slice(0, 160) || "",
               link: `/pages/noticias/${item.id}`,
               rawDate: date || "",
@@ -105,6 +105,7 @@ export default function NoticiasEventosPage() {
             description: item.description || "",
             link: `/pages/eventos/${item.id}`,
             rawDate: item.startDate || item.createdAt || "",
+            type: "event",
           }));
 
         const mappedWorkshops: Evento[] = rawWorkshops
@@ -118,6 +119,7 @@ export default function NoticiasEventosPage() {
             description: item.description || "",
             link: `/pages/eventos/${item.id}`,
             rawDate: item.startDate || item.createdAt || "",
+            type: "workshop",
           }));
 
         const mergedEvents = [...mappedEvents, ...mappedWorkshops].sort((a, b) => {
@@ -148,10 +150,10 @@ export default function NoticiasEventosPage() {
         <div className="absolute inset-0 bg-black/60" />
         <div className="container relative z-10 mx-auto max-w-5xl space-y-4 text-white">
           <h1 className="font-heading text-4xl font-bold md:text-5xl lg:text-6xl text-white">
-            Not?cias e Eventos
+            Notícias e Eventos
           </h1>
           <p className="text-lg leading-relaxed text-white/85 md:text-xl">
-            Atualiza??es do CEBEA: novas parcerias, descobertas cient?ficas, iniciativas com a comunidade e agenda de eventos ligados ao CMS.
+            Atualizações do CEBEA: novas parcerias, descobertas científicas, iniciativas com a comunidade e agenda de eventos ligados ao CEBEA.
           </p>
           <div className="flex flex-wrap gap-3">
             <span className="flex items-center gap-2 rounded-full bg-white/20 px-4 py-2 text-sm font-semibold">
@@ -175,7 +177,7 @@ export default function NoticiasEventosPage() {
               </h2>
               <div className="w-24 h-1 bg-gradient-to-r from-[#129DE4] to-[#14E259] mx-auto mb-4"></div>
               <p className="text-sm text-muted-foreground">
-                Conteudo sobre a atividade do CEBEA
+                Conteúdo sobre a atividade do CEBEA
               </p>
             </div>
            
@@ -199,7 +201,7 @@ export default function NoticiasEventosPage() {
           {!loading && !error && noticias.length === 0 && (
             <div className="mb-6 rounded-lg bg-gray-50 dark:bg-gray-800 p-8 text-center">
               <p className="text-sm text-gray-600 dark:text-gray-400">
-                Nenhuma not?cia encontrada.
+                Nenhuma notícia encontrada.
               </p>
             </div>
           )}

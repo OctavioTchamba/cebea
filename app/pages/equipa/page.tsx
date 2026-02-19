@@ -6,8 +6,8 @@ export default function EquipaPage() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section
-        className="relative bg-cover bg-center bg-cover-fit px-4 pb-20 pt-32 md:pt-16"
-        style={{ backgroundImage: `url(/Imagem3.jpg)` }}
+        className="relative bg-cover bg-center bg-cover-fit px-4 pb-20 mt-20 pt-32 md:pt-16"
+        style={{ backgroundImage: `url(/equipa.jpeg)` }}
       >
         <div className="absolute inset-0 bg-black/50"></div>
         <div className="container relative z-10 mx-auto max-w-6xl text-center">

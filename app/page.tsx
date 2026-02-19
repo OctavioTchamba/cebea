@@ -9,7 +9,7 @@ import Team from "@/components/Team";
 import Partners from "@/components/Partners";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Microscope } from "lucide-react";
-import Objetives from "@/components/Objetivos";
+import Objectives from "@/components/Objetivos";
 import Link from "next/link";
 import Research from "@/components/Research";
 import LightRays from "@/components/LightRays";
@@ -64,7 +64,7 @@ export default function HomePage(){
                 className="object-cover"
                 priority
               />
-              <div className="absolute inset-0 bg-linear-to-r from-[#002059]/70 to-[#002059]/70" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#002059]/70 to-[#002059]/70" />
             </div>
 
             {/* Slide 2 */}
@@ -75,7 +75,7 @@ export default function HomePage(){
                 fill 
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-linear-to-r from-[#002059]/70 to-[#002059]/70" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#002059]/70 to-[#002059]/70" />
             </div>
 
                 {/* Slide 4 */}
@@ -86,7 +86,7 @@ export default function HomePage(){
                 fill 
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-linear-to-r from-[#002059]/70 to-[#002059]/70" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#002059]/70 to-[#002059]/70" />
             </div>
 
             {/* Slide 3 */}
@@ -97,7 +97,7 @@ export default function HomePage(){
                 fill 
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-linear-to-r from-[#002059]/70 to-[#002059]/70" />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#002059]/70 to-[#002059]/70" />
             </div>
           </div>
          
@@ -155,7 +155,7 @@ export default function HomePage(){
           <span className="text-sm font-medium text-white">Centro de  Estudos da Biodiversidade & Educação Ambiental</span>
 
           </motion.div>
-          {/**Titulo principal */}
+          {/**Título principal */}
           <motion.h1
           initial={{opacity: 0, y:30}}
           animate={{opacity: 1, y: 0}}
@@ -208,7 +208,7 @@ export default function HomePage(){
       {/* Missão <Missions/>*/}
       
 
-      <Objetives/>
+      <Objectives/>
       
       {/* Nosso Impacto em Números */}
       <ImpactStats />

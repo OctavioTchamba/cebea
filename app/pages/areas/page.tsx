@@ -22,7 +22,7 @@ export default function Areas() {
   return (
     <div className="min-h-screen">
       <section
-        className="relative bg-cover bg-center bg-cover-fit px-4 pb-24 pt-32 md:pt-20"
+        className="relative bg-cover bg-center bg-cover-fit px-4 pb-24 pt-32 mt-20 md:pt-20"
         style={{ backgroundImage: `url(/Imagem7.jpg)` }}
       >
         <div className="absolute inset-0 bg-black/55" />
@@ -57,12 +57,12 @@ export default function Areas() {
               
               // Imagens do Unsplash baseadas no tipo de área
               const areaImages = [
-                'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&h=400&fit=crop', // Natureza/Biodiversidade
-                'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&h=400&fit=crop', // Educação
-                'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop', // Floresta
-                'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=600&h=400&fit=crop', // Sustentabilidade
-                'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&h=400&fit=crop', // Botânica
-                'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop', // Zoologia
+                '/Sable_bull.jpg.jpeg', // Natureza/Biodiversidade
+                '/herbario.jpeg', // Educação
+                '/floresta.jpeg', // Floresta
+                '/imagem7.jpg', // Sustentabilidade
+                '/formacao.jpeg', // Botânica
+                '/imagem1.jpeg', // Agricultura
               ];
               const imageUrl = areaImages[index % areaImages.length];
 

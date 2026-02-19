@@ -18,7 +18,7 @@ export const areasDeAtuacao: AreaAtuacao[] = [
       "Investigação científica sobre a fauna angolana, conservação de espécies ameaçadas e gestão de coleções zoológicas.",
     description:
       "A equipa de Zoologia do CEBEA desenvolve investigação científica em estudos taxonómicos, ecológicos e de conservação da fauna angolana, com foco especial em ecossistemas locais e regionais do sudoeste do país. As coleções zoológicas, resultado de décadas de trabalho de campo, são fundamentais para apoiar investigação, ensino e políticas públicas de conservação.",
-    image: "/imagem4.jpg",
+    image: "/Sable_bull.jpg.jpeg",
     icon: "PawPrint",
     highlights: [
       "Coleções zoológicas com mais de 12.000 espécimes catalogados",
@@ -53,7 +53,7 @@ export const areasDeAtuacao: AreaAtuacao[] = [
       "Curadoria do Herbário LUBA e desenvolvimento de bases de dados florísticas e ecológicas de Angola.",
     description:
       "O Herbário LUBA é uma referência para a flora do sudoeste de Angola e ecossistemas regionais. A equipa desenvolve investigação científica em botânica, curadoria de coleções e gestão de bases de dados florísticas e ecológicas. Com tecnologias de digitalização e gestão de dados, documenta e disponibiliza informação crítica para investigação, conservação e uso sustentável da biodiversidade em Angola.",
-    image: "/imagem2.jpg",
+    image: "/herbario.jpeg",
     icon: "Flower",
     highlights: [
       "Coleção botânica com 5.000+ espécimes",
@@ -88,7 +88,7 @@ export const areasDeAtuacao: AreaAtuacao[] = [
       "Aplicação de SIG, deteção remota e modelação espacial para apoiar a conservação e o ordenamento do território.",
     description:
       "A área de Cartografia e Análise Espacial com Detenção Remota desenvolve soluções baseadas em geotecnologias para monitorizar ecossistemas, analisar pressões ambientais e apoiar decisões estratégicas em Angola. Utiliza técnicas avançadas de sensoriamento remoto para mapeamento e análise de ecossistemas locais e regionais.",
-    image: "/imagem5.jpg",
+    image: "/sig.jpeg",
     icon: "Map",
     highlights: [
       "Laboratório equipado com ferramentas SIG open-source e proprietárias",
@@ -158,7 +158,7 @@ export const areasDeAtuacao: AreaAtuacao[] = [
       "Capacitação de educadores, comunidades e instituições para promover sustentabilidade e cidadania ambiental.",
     description:
       "Programas abrangentes de formação, educação ambiental, desenvolvimento de competências e sensibilização comunitária para fomentar uma cultura de sustentabilidade e participação cidadã. A área promove a formação de profissionais qualificados em biodiversidade e educação ambiental, contribuindo para o desenvolvimento sustentável em Angola.",
-    image: "/imagem3.jpg",
+    image: "/capacitacao.jpeg",
     icon: "GraduationCap",
     highlights: [
       "Programas educativos em 12 municípios",

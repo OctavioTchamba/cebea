@@ -21,7 +21,7 @@ export default function Sobre() {
   return (
     <div className="min-h-screen">
       <section
-        className="pt-32 pb-20 px-4 bg-muted bg-cover bg-cover-fit bg-center relative"
+        className="pt-32 pb-20 mt-20 px-4 bg-muted bg-cover bg-cover-fit bg-center relative"
         style={{ backgroundImage: `url(/Imagem2.jpg)` }}
       >
         <div className="absolute inset-0 bg-black/40"></div>
@@ -146,7 +146,7 @@ export default function Sobre() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Card className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group bg-white">
               <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
-              <div className="relative h-48 bg-cover bg-center" style={{backgroundImage: `url(https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&h=400&fit=crop)`}}>
+              <div className="relative h-48 bg-cover bg-center" style={{backgroundImage: `url(/infra.jpeg)`}}>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
               </div>
               <CardContent className="p-6">
@@ -161,7 +161,7 @@ export default function Sobre() {
                   investigação florística e a conservação da flora angolana.
                 </p>
                 <div className="text-sm text-[#129DE4] font-medium">
-                  • 5.000+ espécimes catalogados<br/>
+                  • 20.000+ espécimes catalogados<br/>
                   • Coleções de referência regional<br/>
                   • Apoio à taxonomia vegetal
                 </div>
@@ -170,7 +170,7 @@ export default function Sobre() {
 
             <Card className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group bg-white">
               <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
-              <div className="relative h-48 bg-cover bg-center" style={{backgroundImage: `url(https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=400&fit=crop)`}}>
+              <div className="relative h-48 bg-cover bg-center" style={{backgroundImage: `url(/microscope.jpeg)`}}>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
               </div>
               <CardContent className="p-6">
@@ -194,7 +194,7 @@ export default function Sobre() {
 
             <Card className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group bg-white">
               <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
-              <div className="relative h-48 bg-cover bg-center" style={{backgroundImage: `url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop)`}}>
+              <div className="relative h-48 bg-cover bg-center" style={{backgroundImage: `url(/ecology.jpeg)`}}>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
               </div>
               <CardContent className="p-6">
@@ -239,7 +239,7 @@ export default function Sobre() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Card className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group bg-white">
               <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
-              <div className="relative h-40 bg-cover bg-center" style={{backgroundImage: `url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop)`}}>
+              <div className="relative h-40 bg-cover bg-center" style={{backgroundImage: `url(/scientific_research.jpeg)`}}>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
               </div>
               <CardContent className="p-6 space-y-4">
@@ -263,7 +263,7 @@ export default function Sobre() {
 
             <Card className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group bg-white">
               <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
-              <div className="relative h-40 bg-cover bg-center" style={{backgroundImage: `url(https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&h=400&fit=crop)`}}>
+              <div className="relative h-40 bg-cover bg-center" style={{backgroundImage: `url(/documentation.jpeg)`}}>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
               </div>
               <CardContent className="p-6 space-y-4">
@@ -287,12 +287,12 @@ export default function Sobre() {
 
             <Card className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group bg-white">
               <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
-              <div className="relative h-40 bg-cover bg-center" style={{backgroundImage: `url(https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&h=400&fit=crop)`}}>
-                <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent"></div>
+              <div className="relative h-40 bg-cover bg-center" style={{backgroundImage: `url(/environmental_education.jpeg)`}}>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
               </div>
               <CardContent className="p-6 space-y-4">
-                <div className="h-12 w-12 rounded-lg bg-[#129DE4]/10 flex items-center justify-center group-hover:bg-[#129DE4]/20 transition-colors -mt-8 relative z-10">
-                  <GraduationCap className="h-6 w-6 text-[#129DE4]" />
+                <div className="h-12 w-12 rounded-lg bg-[#14E259]/10 flex items-center justify-center group-hover:bg-[#14E259]/20 transition-colors -mt-8 relative z-10">
+                  <GraduationCap className="h-6 w-6 text-[#14E259]" />
                 </div>
                 <h3 className="font-heading text-xl font-semibold text-[#14E259]">
                   Educação Ambiental
@@ -311,7 +311,7 @@ export default function Sobre() {
 
             <Card className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group bg-white">
               <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
-              <div className="relative h-40 bg-cover bg-center" style={{backgroundImage: `url(https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&h=400&fit=crop)`}}>
+              <div className="relative h-40 bg-cover bg-center" style={{backgroundImage: `url(/conservation.jpeg)`}}>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
               </div>
               <CardContent className="p-6 space-y-4">
@@ -335,12 +335,12 @@ export default function Sobre() {
 
             <Card className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group bg-white">
               <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
-              <div className="relative h-40 bg-cover bg-center" style={{backgroundImage: `url(https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&h=400&fit=crop)`}}>
+              <div className="relative h-40 bg-cover bg-center" style={{backgroundImage: `url(/formacao.jpeg)`}}>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
               </div>
               <CardContent className="p-6 space-y-4">
                 <div className="h-12 w-12 rounded-lg bg-[#14E259]/10 flex items-center justify-center group-hover:bg-[#14E259]/20 transition-colors -mt-8 relative z-10">
-                  <Users className="h-6 w-6 text-[#14E259]" />
+                  <GraduationCap className="h-6 w-6 text-[#14E259]" />
                 </div>
                 <h3 className="font-heading text-xl font-semibold text-[#14E259]">
                   Formação
@@ -359,7 +359,7 @@ export default function Sobre() {
 
             <Card className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group bg-white">
               <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
-              <div className="relative h-40 bg-cover bg-center" style={{backgroundImage: `url(https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop)`}}>
+              <div className="relative h-40 bg-cover bg-center" style={{backgroundImage: `url(/cooperation.jpeg)`}}>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
               </div>
               <CardContent className="p-6 space-y-4">
