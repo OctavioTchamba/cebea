@@ -24,10 +24,9 @@ export default function LoginPage() {
     try {
       await login(email, password);
       router.push("/admin/dashboard");
-    } catch (err: any) {
-      const message = err.response?.data?.message || "Erro ao fazer login.";
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "Erro ao fazer login.";
       setError(message);
-      console.log(err);
     } finally {
       setLoading(false);
     }
@@ -195,7 +194,7 @@ export default function LoginPage() {
                   <p className="text-sm text-gray-600">
                     Não possui uma conta?{' '}
                     <Link 
-                      href="/admin/signup" 
+                      href="/admin/register" 
                       className="font-medium text-[#129DE4] hover:text-[#0d8bc7] transition-colors"
                     >
                       Criar conta

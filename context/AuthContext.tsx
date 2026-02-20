@@ -1,9 +1,10 @@
 'use client';
 
 import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
-import api from '@/service/api';
-import { toast } from 'react-hot-toast';
+import { AxiosError } from 'axios';
 import { useRouter } from 'next/navigation';
+import { toast } from 'react-hot-toast';
+import api from '@/service/api';
 
 interface User {
   id: string;
@@ -16,8 +17,7 @@ interface User {
 
 interface AuthContextType {
   user: User | null;
-  // Alterado para aceitar email e senha e retornar os dados do usuário
-  login: (email: string, password: string) => Promise<User>; 
+  login: (email: string, password: string) => Promise<User>;
   logout: () => Promise<void>;
   isAuthenticated: boolean;
   isLoading: boolean;
@@ -38,23 +38,40 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setIsLoading(false);
   }, []);
 
-  // Agora a função login realmente autentica no seu backend Node.js
   const login = async (email: string, password: string): Promise<User> => {
-    try {
-      // Faz a chamada ao seu backend na porta 8000
-      const response = await api.post('/user/login', { email, password });
-      
-      const userData = response.data.user;
+    const normalizedEmail = email.trim().toLowerCase();
+    const normalizedPassword = password.trim();
 
-      if (!userData) throw new Error("Dados do usuário não recebidos.");
+    if (!normalizedEmail || !normalizedPassword) {
+      throw new Error('Informe email e senha para continuar.');
+    }
+
+    try {
+      const response = await api.post('/user/login', {
+        email: normalizedEmail,
+        password: normalizedPassword,
+      });
+
+      const userData = response.data?.user ?? response.data?.data?.user;
+
+      if (!userData) {
+        throw new Error('Dados do usuario nao recebidos.');
+      }
 
       setUser(userData);
       localStorage.setItem('user', JSON.stringify(userData));
-      
-      return userData; // Retorna para o componente de login prosseguir
-    } catch (error: any) {
-      // Lança o erro para ser capturado pelo catch do formulário
-      throw error;
+
+      return userData;
+    } catch (error) {
+      const axiosError = error as AxiosError<{ message?: string }>;
+      const status = axiosError.response?.status;
+      const apiMessage = axiosError.response?.data?.message;
+
+      if (status === 401) {
+        throw new Error(apiMessage || 'Email ou senha invalidos.');
+      }
+
+      throw new Error(apiMessage || 'Nao foi possivel realizar login.');
     }
   };
 
@@ -64,9 +81,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       setUser(null);
       localStorage.removeItem('user');
       toast.success('Logout realizado');
-      router.push('/admin/login'); // Ajustado para sua rota admin
+      router.push('/admin/login');
     } catch (error) {
-      console.error("Erro logout", error);
+      console.error('Erro logout', error);
       setUser(null);
       localStorage.removeItem('user');
       router.push('/admin/login');
@@ -82,6 +99,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
-  if (!context) throw new Error('useAuth deve ser usado dentro de um AuthProvider');
+  if (!context) {
+    throw new Error('useAuth deve ser usado dentro de um AuthProvider');
+  }
   return context;
 };

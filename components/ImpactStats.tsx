@@ -4,7 +4,7 @@ export default function ImpactStats() {
   const stats = [
     {
       id: 1,
-      number: "50+",
+      number: "150+",
       label: "Projetos Realizados",
       description: "Iniciativas de pesquisa e conservação",
       icon: <Award className="h-8 w-8" />,
@@ -12,7 +12,7 @@ export default function ImpactStats() {
     },
     {
       id: 2,
-      number: "500+",
+      number: "20.000+",
       label: "Espécies Catalogadas",
       description: "Biodiversidade documentada e estudada",
       icon: <Leaf className="h-8 w-8" />,
