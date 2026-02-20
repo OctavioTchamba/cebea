@@ -6,7 +6,7 @@ const getBaseURL = () => {
   }
 
   if (process.env.NODE_ENV === 'production') {
-    return 'https://cebea-server-production.up.railway.app/api';
+    return 'https://cebea-railway-production.up.railway.app/api';
   }
 
   return 'http://localhost:8000/api';
