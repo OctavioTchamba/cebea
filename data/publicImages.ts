@@ -12,7 +12,7 @@ export const PUBLIC_PROJECT_IMAGES: string[] = [
   "/imagem2.jpg",
   "/imagem3.jpg",
   "/imagem4.jpg",
-  "/imagem5.jpg",
+  "/Imagem5.jpg",
   "/imagem6.jpg",
   "/imagem7.jpg",
   "/hero-biodiversity.jpg",
