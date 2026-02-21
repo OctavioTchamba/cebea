@@ -50,6 +50,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       const response = await api.post('/user/login', {
         email: normalizedEmail,
         password: normalizedPassword,
+        
       });
 
       const userData = response.data?.user ?? response.data?.data?.user;
@@ -66,6 +67,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       const axiosError = error as AxiosError<{ message?: string }>;
       const status = axiosError.response?.status;
       const apiMessage = axiosError.response?.data?.message;
+
+      // Tratamento específico para email não verificado
+      if (status === 403 || (apiMessage && apiMessage.toLowerCase().includes('verificado'))) {
+        throw new Error(apiMessage || 'Email nao verificado. Verifique seu email para ativar a conta.');
+      }
 
       if (status === 401) {
         throw new Error(apiMessage || 'Email ou senha invalidos.');

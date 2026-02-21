@@ -23,7 +23,7 @@ export default function SignupPage() {
 
   const onSubmit = async (data: SignupFormData) => {
     try {
-      await api.post('/user/signup', data);
+      await api.post('/user/signup', data,{withCredentials: true});
       toast.success('Conta criada com sucesso! Verifique seu email.', {
         duration: 4000,
         icon: '✅',

@@ -11,13 +11,20 @@ function VerifyContent() {
   const searchParams = useSearchParams();
   const token = searchParams.get('token');
   const [status, setStatus] = useState<'loading' | 'success' | 'error'>('loading');
+  const [errorMessage, setErrorMessage] = useState<string>('');
 
   useEffect(() => {
     if (token) {
-      api.get(`/verify-email?token=${token}`)
+      api.get(`/user/verify-email?token=${token}`)
         .then(() => setStatus('success'))
-        .catch(() => setStatus('error'));
+        .catch((error: any) => {
+          console.error('Erro na verificação:', error);
+          const message = error.response?.data?.message || 'Token inválido ou expirado.';
+          setErrorMessage(message);
+          setStatus('error');
+        });
     } else {
+      setErrorMessage('Token não fornecido na URL.');
       setStatus('error');
     }
   }, [token]);
@@ -44,10 +51,15 @@ function VerifyContent() {
         <div className="flex flex-col items-center">
           <XCircle className="w-16 h-16 text-red-500 mb-4" />
           <h2 className="text-xl font-bold mb-2">Erro na Verificação</h2>
-          <p className="text-gray-600 mb-4">Token inválido ou expirado.</p>
-          <Link href="/admin/login" className="text-blue-600 hover:underline">
-            Voltar
-          </Link>
+          <p className="text-gray-600 mb-4 text-center">{errorMessage || 'Token inválido ou expirado.'}</p>
+          <div className="flex flex-col gap-2 w-full">
+            <Link href="/admin/login" className="text-blue-600 hover:underline text-center">
+              Voltar para Login
+            </Link>
+            <Link href="/admin/register" className="text-blue-600 hover:underline text-center text-sm">
+              Criar nova conta
+            </Link>
+          </div>
         </div>
       )}
     </div>
