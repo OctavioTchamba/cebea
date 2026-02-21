@@ -4,7 +4,7 @@
  */
 
 export const PUBLIC_PROJECT_IMAGES: string[] = [
-  "/parque-nacional-bicuar-1024x683.jpg.jpeg",
+  "/bicuar.jpeg",
   "/iona-national-park.jpg.jpeg",
   "/mupa.jpg.jpeg",
   "/capacitacao.jpeg",
