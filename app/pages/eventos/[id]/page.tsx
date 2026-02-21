@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
+import Image from "next/image";
 import { ArrowLeft, Calendar, MapPin, Users, Tag, Share2, Clock, Lightbulb, Target } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -207,12 +208,15 @@ export default function EventoDetalhesPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
-                  className="rounded-xl overflow-hidden shadow-lg"
+                  className="rounded-xl overflow-hidden shadow-lg relative aspect-video"
                 >
-                  <img 
-                    src={evento.imageUrl} 
+                  <Image
+                    src={evento.imageUrl}
                     alt={evento.title}
-                    className="w-full h-auto object-cover"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 66vw"
+                    className="object-cover"
+                    unoptimized={evento.imageUrl.startsWith("http")}
                   />
                 </motion.div>
               )}

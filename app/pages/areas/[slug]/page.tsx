@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import {
   ArrowLeft,
@@ -41,10 +42,17 @@ export default async function AreaDetalhePage({ params }: AreaPageProps) {
 
   return (
     <div className="min-h-screen bg-background">
-      <section
-        className="relative bg-cover bg-center bg-cover-fit px-4 pb-24 pt-32 md:pt-20"
-        style={{ backgroundImage: `url(${area.image})` }}
-      >
+      <section className="relative px-4 pb-24 pt-32 md:pt-20 min-h-[40vh]">
+        <div className="absolute inset-0">
+          <Image
+            src={area.image}
+            alt={area.title}
+            fill
+            sizes="100vw"
+            className="object-cover object-center"
+            priority
+          />
+        </div>
         <div className="absolute inset-0 bg-black/55" />
         <div className="container relative z-10 mx-auto max-w-5xl space-y-6 text-white">
           <div className="flex justify-between gap-4 mt-6">

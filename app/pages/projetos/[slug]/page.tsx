@@ -1,6 +1,7 @@
 "use client"
 
 import { use } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Calendar, Users, ArrowLeft, ExternalLink, Award, MapPin, Target, Lightbulb, FileText, User } from "lucide-react";
 import Link from "next/link";
@@ -26,10 +27,13 @@ export default function ProjetoDetalhes({ params }: { params: Promise<{ slug: st
       {/* Hero Section */}
       <section className="relative h-[60vh] min-h-[500px]">
         <div className="absolute inset-0">
-          <img
+          <Image
             src={projeto.image}
             alt={projeto.title}
-            className="w-full h-full object-cover"
+            fill
+            sizes="100vw"
+            className="object-cover"
+            priority
           />
           <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/50 to-background"></div>
         </div>

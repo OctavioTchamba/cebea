@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
+import Image from "next/image";
 import { ArrowLeft, Calendar, User, Tag, Share2, Clock, Newspaper } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -189,12 +190,15 @@ export default function NoticiaDetalhesPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
-                  className="rounded-xl overflow-hidden shadow-lg"
+                  className="rounded-xl overflow-hidden shadow-lg relative aspect-video"
                 >
-                  <img 
-                    src={noticia.imageUrl} 
+                  <Image
+                    src={noticia.imageUrl}
                     alt={noticia.title}
-                    className="w-full h-auto object-cover"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 66vw"
+                    className="object-cover"
+                    unoptimized={noticia.imageUrl.startsWith("http")}
                   />
                 </motion.div>
               )}

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import Team from "@/components/Team";
 import { 
@@ -146,7 +147,8 @@ export default function Sobre() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Card className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group bg-white">
               <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
-              <div className="relative h-48 bg-cover bg-center" style={{backgroundImage: `url(/infra.jpeg)`}}>
+              <div className="relative h-48">
+                <Image src="/infra.jpeg" alt="Herbário LUBA" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover object-center" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
               </div>
               <CardContent className="p-6">
@@ -170,7 +172,8 @@ export default function Sobre() {
 
             <Card className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group bg-white">
               <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
-              <div className="relative h-48 bg-cover bg-center" style={{backgroundImage: `url(/microscope.jpeg)`}}>
+              <div className="relative h-48">
+                <Image src="/museu.jpeg" alt="Museu de Zoologia" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover object-center" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
               </div>
               <CardContent className="p-6">
@@ -194,7 +197,8 @@ export default function Sobre() {
 
             <Card className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group bg-white">
               <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
-              <div className="relative h-48 bg-cover bg-center" style={{backgroundImage: `url(/ecology.jpeg)`}}>
+              <div className="relative h-48">
+                <Image src="/labs.jpeg" alt="Laboratório de Ecologia" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover object-center" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
               </div>
               <CardContent className="p-6">
@@ -239,7 +243,8 @@ export default function Sobre() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <Card className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group bg-white">
               <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
-              <div className="relative h-40 bg-cover bg-center" style={{backgroundImage: `url(/scientific_research.jpeg)`}}>
+              <div className="relative h-40">
+                <Image src="/investig.jpeg" alt="Investigação Científica" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover object-center" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
               </div>
               <CardContent className="p-6 space-y-4">
@@ -263,7 +268,8 @@ export default function Sobre() {
 
             <Card className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group bg-white">
               <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
-              <div className="relative h-40 bg-cover bg-center" style={{backgroundImage: `url(/documentation.jpeg)`}}>
+              <div className="relative h-40">
+                <Image src="/welwi.jpeg" alt="Informação e Documentação" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover object-center" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
               </div>
               <CardContent className="p-6 space-y-4">
@@ -287,7 +293,8 @@ export default function Sobre() {
 
             <Card className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group bg-white">
               <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
-              <div className="relative h-40 bg-cover bg-center" style={{backgroundImage: `url(/environmental_education.jpeg)`}}>
+              <div className="relative h-40">
+                <Image src="/env-edu.jpeg" alt="Educação Ambiental" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover object-center" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
               </div>
               <CardContent className="p-6 space-y-4">
@@ -311,7 +318,8 @@ export default function Sobre() {
 
             <Card className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group bg-white">
               <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
-              <div className="relative h-40 bg-cover bg-center" style={{backgroundImage: `url(/conservation.jpeg)`}}>
+              <div className="relative h-40">
+                <Image src="/conservacy.jpeg" alt="Conservação" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover object-center" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
               </div>
               <CardContent className="p-6 space-y-4">
@@ -335,7 +343,8 @@ export default function Sobre() {
 
             <Card className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group bg-white">
               <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
-              <div className="relative h-40 bg-cover bg-center" style={{backgroundImage: `url(/formacao.jpeg)`}}>
+              <div className="relative h-40">
+                <Image src="/formacao.jpeg" alt="Formação" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover object-center" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
               </div>
               <CardContent className="p-6 space-y-4">
@@ -359,7 +368,8 @@ export default function Sobre() {
 
             <Card className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group bg-white">
               <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
-              <div className="relative h-40 bg-cover bg-center" style={{backgroundImage: `url(/cooperation.jpeg)`}}>
+              <div className="relative h-40">
+                <Image src="/equipa.jpeg" alt="Cooperação" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover object-center" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
               </div>
               <CardContent className="p-6 space-y-4">

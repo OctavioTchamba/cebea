@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import {
   Flower,
@@ -51,20 +52,9 @@ export default function Areas() {
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {areasDeAtuacao.map((area, index) => {
+            {areasDeAtuacao.map((area) => {
               const Icon =
                 iconMap[area.icon as keyof typeof iconMap] ?? TreePine;
-              
-              // Imagens do Unsplash baseadas no tipo de área
-              const areaImages = [
-                '/Sable_bull.jpg.jpeg', // Natureza/Biodiversidade
-                '/herbario.jpeg', // Educação
-                '/floresta.jpeg', // Floresta
-                '/imagem7.jpg', // Sustentabilidade
-                '/formacao.jpeg', // Botânica
-                '/imagem1.jpeg', // Agricultura
-              ];
-              const imageUrl = areaImages[index % areaImages.length];
 
               return (
                 <Card
@@ -72,7 +62,14 @@ export default function Areas() {
                   className="relative flex h-full flex-col border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group bg-white"
                 >
                   <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
-                  <div className="relative h-48 bg-cover bg-center" style={{backgroundImage: `url(${imageUrl})`}}>
+                  <div className="relative h-48">
+                    <Image
+                      src={area.image}
+                      alt={area.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover object-center"
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
                   </div>
                   <CardContent className="flex flex-1 flex-col gap-4 p-6">
