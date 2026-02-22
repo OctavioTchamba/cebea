@@ -1,7 +1,6 @@
 'use client';
 
 import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
-import { AxiosError } from 'axios';
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-hot-toast';
 import api from '@/service/api';
@@ -46,66 +45,43 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       throw new Error('Informe email e senha para continuar.');
     }
 
-    try {
-      console.log('[AuthContext] Fazendo requisição de login...');
-      const response = await fetch('https://cebea-railway-production.up.railway.app/api/user/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'include',
-        body: JSON.stringify({
-          email: normalizedEmail,
-          password: normalizedPassword,
-        }),
-      });
-      console.log('[AuthContext] Resposta do servidor:', response.status);
-      console.log('[AuthContext] Headers da resposta:', response.headers);
+    const response = await fetch('/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({
+        email: normalizedEmail,
+        password: normalizedPassword,
+      }),
+    });
 
-      if (!response.ok) {
-        const data = await response.json();
-        throw new Error(data?.message || 'Nao foi possivel realizar login.');
-      }
-      
-      const data = await response.json();
-      const userData = data.user ?? data.data?.user;
-      console.log('[AuthContext] Dados do usuário recebidos:', userData);
-      setUser(userData);
-      localStorage.setItem('user', JSON.stringify(userData));
+    const data = await response.json().catch(() => ({}));
 
-      // Verificar cookies após login
-      console.log('[AuthContext] Cookies após login:', document.cookie);
-
-      return userData;
-    } catch (error) {
-      const axiosError = error as AxiosError<{ message?: string }>;
-      const status = axiosError.response?.status;
-      const apiMessage = axiosError.response?.data?.message;
-
-      // Tratamento específico para email não verificado
-      if (status === 403 || (apiMessage && apiMessage.toLowerCase().includes('verificado'))) {
-        throw new Error(apiMessage || 'Email nao verificado. Verifique seu email para ativar a conta.');
-      }
-
-      if (status === 401) {
-        throw new Error(apiMessage || 'Email ou senha invalidos.');
-      }
-
-      throw new Error(apiMessage || 'Nao foi possivel realizar login.');
+    if (!response.ok) {
+      const msg = data?.message || 'Nao foi possivel realizar login.';
+      throw new Error(msg);
     }
+
+    const userData = data.user ?? data.data?.user;
+    if (!userData) {
+      throw new Error('Dados do usuario nao recebidos.');
+    }
+
+    setUser(userData);
+    localStorage.setItem('user', JSON.stringify(userData));
+    return userData;
   };
 
   const logout = async () => {
     try {
-      await api.post('/user/logout');
-      setUser(null);
-      localStorage.removeItem('user');
-      toast.success('Logout realizado');
-      router.push('/admin/login');
-    } catch (error) {
-      console.error('Erro logout', error);
-      setUser(null);
-      localStorage.removeItem('user');
-      router.push('/admin/login');
+      await fetch('/api/auth/logout', { method: 'POST', credentials: 'include' });
+    } catch (e) {
+      console.error('Erro logout', e);
     }
+    setUser(null);
+    localStorage.removeItem('user');
+    toast.success('Logout realizado');
+    router.push('/admin/login');
   };
 
   return (
