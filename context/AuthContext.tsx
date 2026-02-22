@@ -47,19 +47,28 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
 
     try {
+      console.log('[AuthContext] Fazendo requisição de login...');
       const response = await api.post('/user/login', {
         email: normalizedEmail,
         password: normalizedPassword,
       },  { withCredentials: true });
 
+      console.log('[AuthContext] Resposta do servidor:', response.status);
+      console.log('[AuthContext] Headers da resposta:', response.headers);
+
       const userData = response.data?.user ?? response.data?.data?.user;
 
       if (!userData) {
+        console.error('[AuthContext] Dados do usuário não recebidos');
         throw new Error('Dados do usuario nao recebidos.');
       }
 
+      console.log('[AuthContext] Dados do usuário recebidos:', userData);
       setUser(userData);
       localStorage.setItem('user', JSON.stringify(userData));
+
+      // Verificar cookies após login
+      console.log('[AuthContext] Cookies após login:', document.cookie);
 
       return userData;
     } catch (error) {

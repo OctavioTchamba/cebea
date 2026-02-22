@@ -173,7 +173,7 @@ export default function Sobre() {
             <Card className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group bg-white">
               <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
               <div className="relative h-48">
-                <Image src="/museu.jpeg" alt="Museu de Zoologia" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover object-center" />
+                <Image src="/microscope.jpeg" alt="Museu de Zoologia" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover object-center" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
               </div>
               <CardContent className="p-6">
@@ -198,7 +198,7 @@ export default function Sobre() {
             <Card className="relative border-2 border-transparent hover:border-[#14E259]/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg overflow-hidden group bg-white">
               <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#14E259]"></div>
               <div className="relative h-48">
-                <Image src="/labs.jpeg" alt="Laboratório de Ecologia" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover object-center" />
+                <Image src="/ecology.jpeg" alt="Laboratório de Ecologia" fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover object-center" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
               </div>
               <CardContent className="p-6">

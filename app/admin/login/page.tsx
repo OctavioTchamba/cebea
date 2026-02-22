@@ -22,12 +22,22 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
-      await login(email, password);
-      router.push("/admin/dashboard");
+      console.log('Iniciando login...');
+      const userData = await login(email, password);
+      console.log('Login bem-sucedido:', userData);
+      
+      // Verificar se o cookie foi definido
+      const cookies = document.cookie;
+      console.log('Cookies após login:', cookies);
+      
+      // Usar window.location.href para garantir o redirecionamento completo
+      // Isso força uma navegação completa e recarrega o middleware
+      console.log('Redirecionando para dashboard...');
+      window.location.href = "/admin/dashboard";
     } catch (err: unknown) {
+      console.error('Erro no login:', err);
       const message = err instanceof Error ? err.message : "Erro ao fazer login.";
       setError(message);
-    } finally {
       setLoading(false);
     }
   };

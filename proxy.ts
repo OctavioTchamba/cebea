@@ -6,14 +6,27 @@ export async function proxy(request: NextRequest) {
   const token = request.cookies.get('accessToken')?.value;
   const { pathname } = request.nextUrl;
 
+  // Log para debug (apenas em desenvolvimento)
+  if (process.env.NODE_ENV === 'development') {
+    console.log('[Middleware] Path:', pathname);
+    console.log('[Middleware] Token presente:', !!token);
+    console.log('[Middleware] Todos os cookies:', request.cookies.getAll().map(c => c.name));
+  }
+
   const isAuthPage = pathname.startsWith('/admin/login') || pathname.startsWith('/admin/register');
   const isDashboardPage = pathname.startsWith('/admin/dashboard');
 
   if (isDashboardPage && !token) {
+    if (process.env.NODE_ENV === 'development') {
+      console.log('[Middleware] Redirecionando para login - sem token');
+    }
     return NextResponse.redirect(new URL('/admin/login', request.url));
   }
 
   if (isAuthPage && token) {
+    if (process.env.NODE_ENV === 'development') {
+      console.log('[Middleware] Redirecionando para dashboard - token presente');
+    }
     return NextResponse.redirect(new URL('/admin/dashboard', request.url));
   }
 
