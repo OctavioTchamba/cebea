@@ -50,8 +50,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       const response = await api.post('/user/login', {
         email: normalizedEmail,
         password: normalizedPassword,
-        
-      });
+      },  { withCredentials: true });
 
       const userData = response.data?.user ?? response.data?.data?.user;
 

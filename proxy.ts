@@ -1,19 +1,18 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-export function proxy(request: NextRequest) {
-  // Recupera o cookie de acesso (o nome deve ser igual ao que o Node.js envia)
+// middleware.ts
+export async function middleware(request: NextRequest) {
   const token = request.cookies.get('accessToken')?.value;
-  const isAuthPage = request.nextUrl.pathname.startsWith('/admin/login');
-  const isRegisterPage = request.nextUrl.pathname.startsWith("/admin/register")
-  const isDashboardPage = request.nextUrl.pathname.startsWith('/admin/dashboard');
+  const { pathname } = request.nextUrl;
 
-  // 1. Se tentar entrar no dashboard sem token -> Redireciona para Login
+  const isAuthPage = pathname.startsWith('/admin/login') || pathname.startsWith('/admin/register');
+  const isDashboardPage = pathname.startsWith('/admin/dashboard');
+
   if (isDashboardPage && !token) {
     return NextResponse.redirect(new URL('/admin/login', request.url));
   }
 
-  // 2. Se já estiver logado e tentar ir para o Login -> Redireciona para Dashboard
   if (isAuthPage && token) {
     return NextResponse.redirect(new URL('/admin/dashboard', request.url));
   }
