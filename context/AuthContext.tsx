@@ -48,7 +48,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     try {
       console.log('[AuthContext] Fazendo requisição de login...');
-      const response = await fetch('/api/user/login', {
+      const response = await fetch('https://cebea-railway-production.up.railway.app/api/user/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
