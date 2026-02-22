@@ -48,21 +48,25 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
     try {
       console.log('[AuthContext] Fazendo requisição de login...');
-      const response = await api.post('/user/login', {
-        email: normalizedEmail,
-        password: normalizedPassword,
-      },  { withCredentials: true });
-
+      const response = await fetch('/api/user/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({
+          email: normalizedEmail,
+          password: normalizedPassword,
+        }),
+      });
       console.log('[AuthContext] Resposta do servidor:', response.status);
       console.log('[AuthContext] Headers da resposta:', response.headers);
 
-      const userData = response.data?.user ?? response.data?.data?.user;
-
-      if (!userData) {
-        console.error('[AuthContext] Dados do usuário não recebidos');
-        throw new Error('Dados do usuario nao recebidos.');
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data?.message || 'Nao foi possivel realizar login.');
       }
-
+      
+      const data = await response.json();
+      const userData = data.user ?? data.data?.user;
       console.log('[AuthContext] Dados do usuário recebidos:', userData);
       setUser(userData);
       localStorage.setItem('user', JSON.stringify(userData));
