@@ -175,8 +175,7 @@ export default function LoginPage() {
                   </div>
                 </div>
 
-                {/* Remember Me */}
-                <div className="flex items-center">
+                {/* Remember Me  <div className="flex items-center">
                   <input
                     id="remember-me"
                     name="remember-me"
@@ -186,7 +185,8 @@ export default function LoginPage() {
                   <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-700 cursor-pointer">
                     Lembrar de mim
                   </label>
-                </div>
+                </div>*/}
+               
 
                 {/* Submit Button */}
                 <motion.button
