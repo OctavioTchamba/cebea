@@ -26,13 +26,22 @@ export async function POST(request: Request) {
       );
     }
 
-    const response = NextResponse.json(data, { status: 200 });
     const setCookie = res.headers.get('set-cookie');
     const token =
       getCookieValue(setCookie, 'accessToken') ??
       getCookieValue(setCookie, 'token') ??
       data?.accessToken ??
       data?.token;
+
+    const responseBody =
+      token && data && typeof data === 'object'
+        ? {
+            ...data,
+            accessToken: data?.accessToken ?? data?.token ?? token,
+          }
+        : data;
+
+    const response = NextResponse.json(responseBody, { status: 200 });
 
     if (token) {
       response.cookies.set('accessToken', token, {

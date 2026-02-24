@@ -63,12 +63,17 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
 
     const userData = data.user ?? data.data?.user;
+    const token = data?.accessToken ?? data?.token ?? data?.data?.accessToken ?? data?.data?.token;
+
     if (!userData) {
       throw new Error('Dados do usuario nao recebidos.');
     }
 
     setUser(userData);
     localStorage.setItem('user', JSON.stringify(userData));
+    if (token) {
+      localStorage.setItem('accessToken', token);
+    }
     return userData;
   };
 
@@ -80,6 +85,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
     setUser(null);
     localStorage.removeItem('user');
+    localStorage.removeItem('accessToken');
     toast.success('Logout realizado');
     router.push('/admin/login');
   };
