@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
+import { getApiBaseUrl } from '@/lib/api-base-url';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://cebea-railway-production.up.railway.app/api';
+const API_URL = getApiBaseUrl();
 
 function getCookieValue(setCookieHeader: string | null, name: string): string | null {
   if (!setCookieHeader) return null;

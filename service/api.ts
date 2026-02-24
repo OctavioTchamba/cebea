@@ -1,19 +1,10 @@
 import axios, { AxiosHeaders, InternalAxiosRequestConfig } from 'axios';
+import { getApiBaseUrl } from '@/lib/api-base-url';
 
-const getBaseURL = () => {
-  if (process.env.NEXT_PUBLIC_API_URL) {
-    return process.env.NEXT_PUBLIC_API_URL;
-  }
-
-  if (process.env.NODE_ENV === 'production') {
-    return 'https://cebea-railway-production.up.railway.app/api';
-  }
-
-  return 'http://localhost:8000/api';
-};
+const baseURL = getApiBaseUrl();
 
 const api = axios.create({
-  baseURL: getBaseURL(),
+  baseURL,
   withCredentials: true,
   headers: {
     'Content-Type': 'application/json',
@@ -31,13 +22,11 @@ const PUBLIC_USER_ROUTES = [
 const PRIVATE_RESOURCE_PREFIXES = ['/publications', '/news', '/events', '/workshops'];
 const PRIVATE_USER_PREFIXES = ['/user/me', '/user/logout', '/user/refresh-token'];
 
-const MUTATING_METHODS = new Set(['post', 'put', 'patch', 'delete']);
-
 const getPathnameFromUrl = (url?: string): string => {
   if (!url) return '';
 
   try {
-    const pathname = new URL(url, getBaseURL()).pathname;
+    const pathname = new URL(url, baseURL).pathname;
     return pathname.startsWith('/api/') ? pathname.slice(4) : pathname;
   } catch {
     const pathname = url.split('?')[0] ?? '';
@@ -46,7 +35,6 @@ const getPathnameFromUrl = (url?: string): string => {
 };
 
 const isPrivateRoute = (config: InternalAxiosRequestConfig): boolean => {
-  const method = (config.method ?? 'get').toLowerCase();
   const pathname = getPathnameFromUrl(config.url);
 
   if (!pathname) return false;
@@ -59,7 +47,7 @@ const isPrivateRoute = (config: InternalAxiosRequestConfig): boolean => {
     return true;
   }
 
-  if (PRIVATE_RESOURCE_PREFIXES.some((route) => pathname.startsWith(route)) && MUTATING_METHODS.has(method)) {
+  if (PRIVATE_RESOURCE_PREFIXES.some((route) => pathname.startsWith(route))) {
     return true;
   }
 
