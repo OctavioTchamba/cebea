@@ -3,7 +3,6 @@
 import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { toast } from 'react-hot-toast';
-import api from '@/service/api';
 
 interface User {
   id: string;
@@ -63,7 +62,13 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
 
     const userData = data.user ?? data.data?.user;
-    const token = data?.accessToken ?? data?.token ?? data?.data?.accessToken ?? data?.data?.token;
+    const token =
+      data?.accessToken ??
+      data?.access_token ??
+      data?.token ??
+      data?.data?.accessToken ??
+      data?.data?.access_token ??
+      data?.data?.token;
 
     if (!userData) {
       throw new Error('Dados do usuario nao recebidos.');
@@ -73,6 +78,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     localStorage.setItem('user', JSON.stringify(userData));
     if (token) {
       localStorage.setItem('accessToken', token);
+      localStorage.setItem('token', token);
     }
     return userData;
   };
@@ -86,6 +92,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setUser(null);
     localStorage.removeItem('user');
     localStorage.removeItem('accessToken');
+    localStorage.removeItem('token');
     toast.success('Logout realizado');
     router.push('/admin/login');
   };

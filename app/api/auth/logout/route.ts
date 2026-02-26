@@ -18,5 +18,12 @@ export async function POST() {
     secure: process.env.NODE_ENV === 'production',
     maxAge: 0,
   });
+  response.cookies.set('refreshToken', '', {
+    path: '/',
+    httpOnly: true,
+    sameSite: 'lax',
+    secure: process.env.NODE_ENV === 'production',
+    maxAge: 0,
+  });
   return response;
 }

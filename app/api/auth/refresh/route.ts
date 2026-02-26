@@ -1,4 +1,4 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 import { getApiBaseUrl } from '@/lib/api-base-url';
 
 const API_URL = getApiBaseUrl();
@@ -15,20 +15,51 @@ function getCookieValue(setCookieHeader: string | null, name: string): string | 
   }
 }
 
-export async function POST(request: Request) {
+function buildCookieHeader(request: NextRequest): string {
+  const cookies: string[] = [];
+
+  const accessToken = request.cookies.get('accessToken')?.value;
+  const legacyAccessToken = request.cookies.get('token')?.value;
+  const refreshToken = request.cookies.get('refreshToken')?.value;
+  const legacyRefreshToken = request.cookies.get('refresh_token')?.value;
+
+  if (accessToken) {
+    cookies.push(`accessToken=${encodeURIComponent(accessToken)}`);
+  }
+
+  if (legacyAccessToken) {
+    cookies.push(`token=${encodeURIComponent(legacyAccessToken)}`);
+  }
+
+  if (refreshToken) {
+    cookies.push(`refreshToken=${encodeURIComponent(refreshToken)}`);
+  }
+
+  if (legacyRefreshToken) {
+    cookies.push(`refresh_token=${encodeURIComponent(legacyRefreshToken)}`);
+  }
+
+  return cookies.join('; ');
+}
+
+export async function POST(request: NextRequest) {
   try {
-    const body = await request.json();
-    const res = await fetch(`${API_URL}/user/login`, {
+    const cookieHeader = buildCookieHeader(request);
+
+    const res = await fetch(`${API_URL}/user/refresh-token`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(body),
+      headers: {
+        'Content-Type': 'application/json',
+        ...(cookieHeader ? { Cookie: cookieHeader } : {}),
+      },
+      body: JSON.stringify({}),
     });
 
     const data = await res.json().catch(() => ({}));
 
     if (!res.ok) {
       return NextResponse.json(
-        { message: data?.message || 'Erro ao fazer login.' },
+        { message: data?.message || 'Nao foi possivel atualizar a sessao.' },
         { status: res.status }
       );
     }
@@ -69,7 +100,7 @@ export async function POST(request: Request) {
         httpOnly: true,
         sameSite: 'lax',
         secure: process.env.NODE_ENV === 'production',
-        maxAge: 60 * 60 * 24 * 7, // 7 dias
+        maxAge: 60 * 60 * 24 * 7,
       });
     }
 
@@ -79,13 +110,13 @@ export async function POST(request: Request) {
         httpOnly: true,
         sameSite: 'lax',
         secure: process.env.NODE_ENV === 'production',
-        maxAge: 60 * 60 * 24 * 30, // 30 dias
+        maxAge: 60 * 60 * 24 * 30,
       });
     }
 
     return response;
   } catch (e) {
-    console.error('[api/auth/login]', e);
+    console.error('[api/auth/refresh]', e);
     return NextResponse.json(
       { message: 'Erro ao comunicar com o servidor.' },
       { status: 500 }
