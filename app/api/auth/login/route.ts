@@ -25,7 +25,10 @@ export async function POST(request: Request) {
     const match = setCookie.match(/accessToken=([^;]+)/);
     if (match) accessToken = match[1];
   }
-
+  const responseBody = {
+    ...(typeof data === 'object' && data !== null ? data : {}),
+    accessToken: accessToken ?? null, // força sempre no body
+  };
   const response = NextResponse.json(
     { ...data, accessToken }, // garante que o token vem no body
     { status: 200 }
