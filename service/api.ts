@@ -11,6 +11,7 @@ const api = axios.create({
   },
 });
 
+
 type AuthRequestConfig = InternalAxiosRequestConfig & {
   _retry?: boolean;
   _skipAuthRefresh?: boolean;
@@ -83,6 +84,7 @@ const isPrivateRoute = (config: InternalAxiosRequestConfig): boolean => {
 
   return false;
 };
+
 
 const getAccessToken = (): string | null => {
   if (typeof window === 'undefined') return null;
@@ -159,6 +161,7 @@ const refreshAccessToken = async (): Promise<string | null> => {
 };
 
 api.interceptors.request.use((config) => {
+
   if (!isPrivateRoute(config)) {
     return config;
   }
@@ -167,6 +170,7 @@ api.interceptors.request.use((config) => {
   if (authConfig._skipAuthRefresh) {
     return config;
   }
+
 
   const token = getAccessToken();
   if (!token) {
