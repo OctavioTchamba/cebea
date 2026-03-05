@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
+
+  
   return (
     <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-4 py-12">
@@ -90,7 +92,7 @@ export default function Footer() {
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © 2025 CEBEA - Centro de Estudos da Biodiversidade e Educação Ambiental. Todos os direitos reservados.
+              @ { new Date().getFullYear()}- Centro de Estudos da Biodiversidade e Educação Ambiental. Todos os direitos reservados.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link href="/politica-privacidade" className="text-gray-400 hover:text-white text-sm transition-colors">

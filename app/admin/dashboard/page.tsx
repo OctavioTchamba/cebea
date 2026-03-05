@@ -51,6 +51,7 @@ export default function DashboardHome() {
     { title: "Notícias", value: stats.news, icon: Newspaper, link: "/admin/dashboard/news" },
     { title: "Eventos", value: stats.events, icon: Calendar, link: "/admin/dashboard/events" },
     { title: "Workshops", value: stats.workshops, icon: Users, link: "/admin/dashboard/workshops" },
+    
   ];
 
   return (
@@ -128,6 +129,15 @@ export default function DashboardHome() {
                 <Plus className="h-4 w-4 text-[#0D7AB8]" />
               </div>
               <span className="text-sm font-medium text-gray-700">Novo Workshop</span>
+            </Link>
+            <Link 
+              href="/admin/register" 
+              className="flex items-center gap-3 p-4 rounded-lg border border-gray-200 hover:bg-[#E6F4FF] hover:border-[#129DE4] transition-all duration-200 group"
+            >
+              <div className="flex h-9 w-9 items-center justify-center rounded-md border border-gray-200 bg-white group-hover:border-[#129DE4] transition-colors">
+                <Plus className="h-4 w-4 text-[#0D7AB8]" />
+              </div>
+              <span className="text-sm font-medium text-gray-700">Novo Usuário</span>
             </Link>
           </div>
         </CardContent>

@@ -5,8 +5,8 @@ export default async function middleware(request: NextRequest) {
   const token = request.cookies.get('accessToken')?.value;
   const { pathname } = request.nextUrl;
 
-  const isAuthPage = pathname.startsWith('/admin/login') || pathname.startsWith('/admin/register');
-  const isDashboardPage = pathname.startsWith('/admin/dashboard');
+  const isAuthPage = pathname.startsWith('/admin/login');
+  const isDashboardPage = pathname.startsWith('/admin/dashboard') || pathname.startsWith('/admin/register');
 
   if (isDashboardPage && !token) {
     return NextResponse.redirect(new URL('/admin/login', request.url));
