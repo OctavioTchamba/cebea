@@ -70,7 +70,7 @@ export default function HomePage(){
             {/* Slide 2 */}
             <div className="flex-[0_0_100%] min-w-0 relative">
               <Image 
-                src="/Imagem2.jpg" 
+                src="/imagem2.jpg" 
                 alt="Imagem 2" 
                 fill 
                 className="object-cover"
@@ -92,7 +92,7 @@ export default function HomePage(){
             {/* Slide 3 */}
             <div className="flex-[0_0_100%] min-w-0 relative">
               <Image 
-                src="/Imagem4.jpg" 
+                src="/imagem4.jpg" 
                 alt="Imagem 4" 
                 fill 
                 className="object-cover"
