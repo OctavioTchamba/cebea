@@ -29,6 +29,7 @@ export default function Navbar() {
         { name: "Home", href: "/" },
         { name: "Sobre Nós", href: "/pages/sobre" },
         { name: "Pesquisas", href: "/pages/pesquisas" },
+        { name: "Projectos", href: "/pages/projetos" },
         { name: "Educação", href: "/pages/educacao" },
         { name: "Áreas de ação", href: "/pages/areas" },
         { name: "Notícias e Eventos", href: "/pages/noticias" },
